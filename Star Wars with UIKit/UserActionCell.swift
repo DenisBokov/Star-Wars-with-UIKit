@@ -15,6 +15,8 @@ final class UserActionCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = .black
+        imageView.layer.cornerRadius = 15
+        imageView.clipsToBounds = true
         return imageView
     }()
     

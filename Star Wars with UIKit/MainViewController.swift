@@ -12,6 +12,7 @@ final class MainViewController: UIViewController {
     // MARK: - private property
     
     private var collectionView: UICollectionView!
+    private var collectionCellModel = CollectionCellModel.fetchLink()
 
     // MARK: - overide UIViewController
     
@@ -36,6 +37,7 @@ final class MainViewController: UIViewController {
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.backgroundColor = .lightGray
         view.addSubview(collectionView)
+        collectionView.showsVerticalScrollIndicator = false
         
         collectionView.register(UserActionCell.self, forCellWithReuseIdentifier: UserActionCell.reuseId)
         collectionView.delegate = self
@@ -53,12 +55,16 @@ extension MainViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UserActionCell.reuseId, for: indexPath) as? UserActionCell else {
-            print("Not")
-            return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: UserActionCell.reuseId,
+            for: indexPath) as? UserActionCell
+        else {
+            return UICollectionViewCell()
+            
+        }
         
-        cell.backgroundColor = .black
-        cell.labelView.text = "CELL"
+        cell.imageView.image = UIImage(named: collectionCellModel[indexPath.item].mainImage)
+        cell.labelView.text = collectionCellModel[indexPath.item].collectionLabel
         
         return cell
     }

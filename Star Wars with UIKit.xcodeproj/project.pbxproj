@@ -13,6 +13,7 @@
 		EF66AF8C29027B3D00890F6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF66AF8B29027B3D00890F6A /* Assets.xcassets */; };
 		EF66AF8F29027B3D00890F6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF66AF8D29027B3D00890F6A /* LaunchScreen.storyboard */; };
 		EF66AF97290287CE00890F6A /* UserActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF66AF96290287CE00890F6A /* UserActionCell.swift */; };
+		EF66AF992902E5C100890F6A /* CollectionCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF66AF982902E5C100890F6A /* CollectionCellModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		EF66AF8E29027B3D00890F6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF66AF9029027B3D00890F6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF66AF96290287CE00890F6A /* UserActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActionCell.swift; sourceTree = "<group>"; };
+		EF66AF982902E5C100890F6A /* CollectionCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCellModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				EF66AF8429027B3C00890F6A /* SceneDelegate.swift */,
 				EF66AF8629027B3C00890F6A /* MainViewController.swift */,
 				EF66AF96290287CE00890F6A /* UserActionCell.swift */,
+				EF66AF982902E5C100890F6A /* CollectionCellModel.swift */,
 				EF66AF8B29027B3D00890F6A /* Assets.xcassets */,
 				EF66AF8D29027B3D00890F6A /* LaunchScreen.storyboard */,
 				EF66AF9029027B3D00890F6A /* Info.plist */,
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF66AF992902E5C100890F6A /* CollectionCellModel.swift in Sources */,
 				EF66AF97290287CE00890F6A /* UserActionCell.swift in Sources */,
 				EF66AF8729027B3C00890F6A /* MainViewController.swift in Sources */,
 				EF66AF8329027B3C00890F6A /* AppDelegate.swift in Sources */,
