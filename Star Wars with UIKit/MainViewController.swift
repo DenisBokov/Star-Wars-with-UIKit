@@ -7,12 +7,20 @@
 
 import UIKit
 
+enum Link: String, CaseIterable {
+    case characterLink = "https://swapi.dev/api/people/"
+    case filmsLink = "https://swapi.dev/api/films/"
+    case planetsLink = "https://swapi.dev/api/planets/"
+    case starchipsLink = "https://swapi.dev/api/starships/"
+}
+
 final class MainViewController: UIViewController {
     
     // MARK: - private property
     
     private var collectionView: UICollectionView!
     private var collectionCellModel = CollectionCellModel.fetchLink()
+    private let userActions = Link.allCases
 
     // MARK: - overide UIViewController
     
@@ -37,7 +45,19 @@ final class MainViewController: UIViewController {
 
 // MARK: - UICollectionViewDelegate
 
-extension MainViewController: UICollectionViewDelegate { }
+extension MainViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let userAction = collectionCellModel[indexPath.item]
+        
+        if userAction.collectionLabel == "Characters" {
+            let character = CharacterViewController()
+//            present(character, animated: true)
+            navigationController?.pushViewController(character, animated: true)
+        } else if userAction.collectionLabel == "Films" {
+            print("Film")
+        }
+    }
+}
 
 // MARK: - UICollectionViewDataSource
 
@@ -69,4 +89,5 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
         CGSize.init(width: UIScreen.main.bounds.width - 68, height: 200)
     }
 }
+
 

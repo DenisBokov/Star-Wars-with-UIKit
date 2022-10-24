@@ -16,6 +16,7 @@
 		EF66AF992902E5C100890F6A /* CollectionCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF66AF982902E5C100890F6A /* CollectionCellModel.swift */; };
 		EFF627FC2906C3B400D62DD1 /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF627FB2906C3B400D62DD1 /* CharacterViewController.swift */; };
 		EFF627FE2906D06600D62DD1 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF627FD2906D06600D62DD1 /* CharacterCell.swift */; };
+		EFF62800290719A700D62DD1 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF627FF290719A700D62DD1 /* Character.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		EF66AF982902E5C100890F6A /* CollectionCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCellModel.swift; sourceTree = "<group>"; };
 		EFF627FB2906C3B400D62DD1 /* CharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
 		EFF627FD2906D06600D62DD1 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
+		EFF627FF290719A700D62DD1 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,8 +48,6 @@
 		EF66AF7629027B3C00890F6A = {
 			isa = PBXGroup;
 			children = (
-				EFF627FB2906C3B400D62DD1 /* CharacterViewController.swift */,
-				EFF627FD2906D06600D62DD1 /* CharacterCell.swift */,
 				EF66AF8129027B3C00890F6A /* Star Wars with UIKit */,
 				EF66AF8029027B3C00890F6A /* Products */,
 			);
@@ -64,6 +64,9 @@
 		EF66AF8129027B3C00890F6A /* Star Wars with UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				EFF627FB2906C3B400D62DD1 /* CharacterViewController.swift */,
+				EFF627FF290719A700D62DD1 /* Character.swift */,
+				EFF627FD2906D06600D62DD1 /* CharacterCell.swift */,
 				EF66AF8229027B3C00890F6A /* AppDelegate.swift */,
 				EF66AF8429027B3C00890F6A /* SceneDelegate.swift */,
 				EF66AF8629027B3C00890F6A /* MainViewController.swift */,
@@ -153,6 +156,7 @@
 				EF66AF8729027B3C00890F6A /* MainViewController.swift in Sources */,
 				EF66AF8329027B3C00890F6A /* AppDelegate.swift in Sources */,
 				EF66AF8529027B3C00890F6A /* SceneDelegate.swift in Sources */,
+				EFF62800290719A700D62DD1 /* Character.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

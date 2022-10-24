@@ -29,9 +29,9 @@ final class CharacterViewController: UIViewController {
             characterTabaleView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
         
-        characterTabaleView.register(CharacterCell.self, forCellReuseIdentifier: CharacterCell.characterReuseId)
-        characterTabaleView.dataSource
-        characterTabaleView.delegate
+        characterTabaleView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        characterTabaleView.dataSource = self
+        characterTabaleView.delegate = self
     }
     
 }
@@ -44,11 +44,14 @@ extension CharacterViewController: UITableViewDelegate { }
 
 extension CharacterViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell =  tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = "Hallo"
+        
+        return cell
     }
     
     
