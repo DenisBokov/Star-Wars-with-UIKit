@@ -11,6 +11,7 @@ final class CharacterViewController: UIViewController {
     
     // MARK: - Private property
     
+    private let character: Character? = nil
     private let characterTabaleView = UITableView()
     
     // MARK: - Override UIViewController
@@ -32,6 +33,21 @@ final class CharacterViewController: UIViewController {
         characterTabaleView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         characterTabaleView.dataSource = self
         characterTabaleView.delegate = self
+        
+        fechData()
+    }
+    
+    private func fechData() {
+        guard let url = URL(string: Link.characterLink.rawValue) else { return }
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, let response = response else {
+                print(error?.localizedDescription ?? "Not error")
+                return
+            }
+            
+            print(data, response)
+        }
     }
     
 }
@@ -49,6 +65,7 @@ extension CharacterViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
         cell.textLabel?.text = "Hallo"
         
         return cell
