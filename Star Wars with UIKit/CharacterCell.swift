@@ -11,21 +11,37 @@ final class CharacterCell: UITableViewCell {
     
     static let characterReuseId = "characterCell"
     
+    var characterImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.cornerRadius = 10
+        imageView.clipsToBounds = true
+        return imageView
+    }()
+    
     var characterNameLabel: UILabel = {
         let name = UILabel()
         name.translatesAutoresizingMaskIntoConstraints = false
-        name.font = .systemFont(ofSize: 10, weight: .bold)
+        name.adjustsFontSizeToFitWidth = true
         return name
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        addSubview(characterImage)
         addSubview(characterNameLabel)
         
         NSLayoutConstraint.activate([
-            characterNameLabel.topAnchor.constraint(equalTo: topAnchor),
-            characterNameLabel.rightAnchor.constraint(equalTo: rightAnchor)
+            characterImage.centerYAnchor.constraint(equalTo: centerYAnchor),
+            characterImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
+            characterImage.heightAnchor.constraint(equalToConstant: 80),
+            characterImage.widthAnchor.constraint(equalTo: characterImage.heightAnchor, multiplier: 16/9),
+            
+            characterNameLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            characterNameLabel.leadingAnchor.constraint(equalTo: characterImage.trailingAnchor, constant: 20),
+            characterNameLabel.heightAnchor.constraint(equalToConstant: 80),
+            characterNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12)
         ])
     }
     

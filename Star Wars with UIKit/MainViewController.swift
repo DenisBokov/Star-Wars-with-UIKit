@@ -33,7 +33,7 @@ final class MainViewController: UIViewController {
     private func setupCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        collectionView.backgroundColor = .lightGray
+        collectionView.backgroundColor = .white
         view.addSubview(collectionView)
         collectionView.showsVerticalScrollIndicator = false
         
@@ -51,7 +51,6 @@ extension MainViewController: UICollectionViewDelegate {
         
         if userAction.collectionLabel == "Characters" {
             let character = CharacterViewController()
-//            present(character, animated: true)
             navigationController?.pushViewController(character, animated: true)
         } else if userAction.collectionLabel == "Films" {
             print("Film")

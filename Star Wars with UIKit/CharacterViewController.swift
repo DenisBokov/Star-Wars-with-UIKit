@@ -13,24 +13,41 @@ final class CharacterViewController: UIViewController {
     
     private var characters: [Character] = []
     private let characterTabaleView = UITableView()
+    private let activityIndicator: UIActivityIndicatorView = {
+        let activityView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
+        activityView.startAnimating()
+        return activityView
+    }()
     
     // MARK: - Override UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor.white
+        self.navigationItem.title = "Table"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        
+        characterTabaleView.rowHeight = 100
+        
         view.addSubview(characterTabaleView)
+        view.addSubview(activityIndicator)
         characterTabaleView.showsVerticalScrollIndicator = false
         characterTabaleView.translatesAutoresizingMaskIntoConstraints = false
+        
+        activityIndicator.center = view.center
         
         NSLayoutConstraint.activate([
             characterTabaleView.topAnchor.constraint(equalTo: view.topAnchor),
             characterTabaleView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             characterTabaleView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            characterTabaleView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            characterTabaleView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
         
-        characterTabaleView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
+        
+        characterTabaleView.register(CharacterCell.self, forCellReuseIdentifier: CharacterCell.characterReuseId)
         characterTabaleView.dataSource = self
         characterTabaleView.delegate = self
         
@@ -53,6 +70,7 @@ final class CharacterViewController: UIViewController {
                 
                 DispatchQueue.main.async {
                     self?.characterTabaleView.reloadData()
+                    self?.activityIndicator.stopAnimating()
                 }
     
             } catch {
@@ -75,12 +93,23 @@ extension CharacterViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell =  tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        cell.textLabel?.text = characters[indexPath.row].name
+        guard let cell =  tableView.dequeueReusableCell(
+            withIdentifier: CharacterCell.characterReuseId,
+            for: indexPath) as? CharacterCell
+        else {
+            return UITableViewCell()
+            
+        }
+        
+        cell.characterImage.image = UIImage(named: "people")
+        cell.characterNameLabel.text = characters[indexPath.row].name
         
         return cell
     }
     
     
 }
+    
+    
+
