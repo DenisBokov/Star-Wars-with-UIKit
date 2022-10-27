@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct PeopleStarWars {
+struct PeopleStarWars: Decodable {
     let next: String?
     let previous: String?
     let results: [Character]
 }
 
-struct Character {
+struct Character: Decodable {
     let name: String
     let birth_year: String
     let gender: String
@@ -22,12 +22,12 @@ struct Character {
     let hair_color: String
     let skin_color: String
     let eye_color:String
-    let homeworld: [Planet]
-    let films: [Film]
-    let starships: [Starchip]
+    let homeworld: String
+    let films: [String]
+    let starships: [String]
 }
 
-struct Planet {
+struct Planet: Decodable {
     let name: String
     let rotation_period: String
     let orbital_period: String
@@ -41,7 +41,7 @@ struct Planet {
     let films: [Film]
 }
 
-struct Film {
+struct Film: Decodable {
     let title: String
     let episode_id: Int
     let opening_crawl: String
@@ -53,7 +53,7 @@ struct Film {
     let starships: [Starchip]
 }
 
-struct Starchip {
+struct Starchip: Decodable {
     let name: String
     let model: String
     let manufacturer: String

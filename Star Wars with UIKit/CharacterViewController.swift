@@ -41,13 +41,20 @@ final class CharacterViewController: UIViewController {
         guard let url = URL(string: Link.characterLink.rawValue) else { return }
         
         URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data, let response = response else {
-                print(error?.localizedDescription ?? "Not error")
-                return
+            do {
+                guard let data = data, let response = response else {
+                    print(error?.localizedDescription ?? "Not error")
+                    return
+                }
+                print(response)
+                
+                let jsonCharacter = try JSONDecoder().decode(PeopleStarWars.self, from: data)
+                print(jsonCharacter)
+                
+            } catch {
+                
             }
-            
-            print(data, response)
-        }
+        }.resume()
     }
     
 }
