@@ -11,7 +11,7 @@ final class CharacterViewController: UIViewController {
     
     // MARK: - Private property
     
-    private let character: Character? = nil
+    private var characters: [Character] = []
     private let characterTabaleView = UITableView()
     
     // MARK: - Override UIViewController
@@ -40,7 +40,7 @@ final class CharacterViewController: UIViewController {
     private func fechData() {
         guard let url = URL(string: Link.characterLink.rawValue) else { return }
         
-        URLSession.shared.dataTask(with: url) { data, response, error in
+        URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
             do {
                 guard let data = data, let response = response else {
                     print(error?.localizedDescription ?? "Not error")
@@ -49,8 +49,12 @@ final class CharacterViewController: UIViewController {
                 print(response)
                 
                 let jsonCharacter = try JSONDecoder().decode(PeopleStarWars.self, from: data)
-                print(jsonCharacter)
+                self?.characters = jsonCharacter.results
                 
+                DispatchQueue.main.async {
+                    self?.characterTabaleView.reloadData()
+                }
+    
             } catch {
                 
             }
@@ -67,13 +71,13 @@ extension CharacterViewController: UITableViewDelegate { }
 
 extension CharacterViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        4
+        characters.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        cell.textLabel?.text = "Hallo"
+        cell.textLabel?.text = characters[indexPath.row].name
         
         return cell
     }
