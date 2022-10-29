@@ -11,6 +11,8 @@ final class CharacterInfoViewController: UIViewController {
     
     // MARK: - Private property
     
+    private let character: Character! = nil
+    
     private var characterInfoImage: UIImageView = {
         let image = UIImageView()
         return image
@@ -19,6 +21,10 @@ final class CharacterInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor.white
+        self.navigationItem.title = character.name
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         
         view.addSubview(characterInfoImage)
         

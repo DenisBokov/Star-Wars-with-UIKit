@@ -25,7 +25,7 @@ final class CharacterViewController: UIViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor.white
-        self.navigationItem.title = "Table"
+        self.navigationItem.title = "Character"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
         characterTabaleView.rowHeight = 100
@@ -65,7 +65,9 @@ final class CharacterViewController: UIViewController {
                 }
                 print(response)
                 
-                let jsonCharacter = try JSONDecoder().decode(PeopleStarWars.self, from: data)
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let jsonCharacter = try decoder.decode(PeopleStarWars.self, from: data)
                 self?.characters = jsonCharacter.results
                 
                 DispatchQueue.main.async {
@@ -83,7 +85,13 @@ final class CharacterViewController: UIViewController {
 
 // MARK: - UITableViewDelegate
 
-extension CharacterViewController: UITableViewDelegate { }
+extension CharacterViewController: UITableViewDelegate {
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let character = characters[indexPath.row]
+//
+//        
+//    }
+}
 
 // MARK: - UITableViewDataSource
 

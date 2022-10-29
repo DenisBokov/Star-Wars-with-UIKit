@@ -30,6 +30,8 @@ final class MainViewController: UIViewController {
         setupCollectionView()
     }
     
+    // MARK: - Private function
+    
     private func setupCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
