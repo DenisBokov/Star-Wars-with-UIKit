@@ -111,13 +111,33 @@ extension CharacterViewController: UITableViewDataSource {
             
         }
         
-        cell.characterImage.image = UIImage(named: "people")
+        let image = Image.allCases
+        
+        image.forEach { image in
+            if characters[indexPath.row].name == image.rawValue {
+                cell.characterImage.image = UIImage(named: image.rawValue)
+            }
+        }
+    
         cell.characterNameLabel.text = characters[indexPath.row].name
         
         return cell
     }
     
     
+}
+
+enum Image: String, CaseIterable {
+    case imageLeiaOrgana = "Leia Organa"
+    case imageC3PO = "C-3PO"
+    case imageLuke = "Luke Skywalker"
+    case imageR2D2 = "R2-D2"
+    case imageDarthVader = "Darth Vader"
+    case imageOwenLars = "Owen Lars"
+    case imageBeruWhitesunLars = "Beru Whitesun lars"
+    case imageR5D4 = "R5-D4"
+    case imageBiggsDarklighter = "Biggs Darklighter"
+    case imageObiWanKenobi = "Obi-Wan Kenobi"
 }
     
     

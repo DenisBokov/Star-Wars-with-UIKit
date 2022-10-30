@@ -9,7 +9,10 @@ import UIKit
 
 final class CharacterInfoViewController: UIViewController {
     
+    // MARK: - Property
+    
     var character: Character!
+    let images = Image.allCases
     
     // MARK: - Private property
     
@@ -37,7 +40,11 @@ final class CharacterInfoViewController: UIViewController {
         self.view.backgroundColor = UIColor.white
         self.navigationItem.title = character.name
         
-//        planetLabel.text = character.homeworld
+        images.forEach { image in
+            if image.rawValue == character.name {
+                characterInfoImage.image = UIImage(named: image.rawValue)
+            }
+        }
         
         view.addSubview(characterInfoImage)
         view.addSubview(planetLabel)
@@ -45,8 +52,8 @@ final class CharacterInfoViewController: UIViewController {
         NSLayoutConstraint.activate([
             characterInfoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             characterInfoImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            characterInfoImage.widthAnchor.constraint(equalToConstant: 200),
-            characterInfoImage.heightAnchor.constraint(equalToConstant: 150),
+            characterInfoImage.widthAnchor.constraint(equalToConstant: 350),
+            characterInfoImage.heightAnchor.constraint(equalToConstant: 200),
             
             planetLabel.topAnchor.constraint(equalTo: characterInfoImage.bottomAnchor, constant: 20),
             planetLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
