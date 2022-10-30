@@ -37,8 +37,8 @@ struct Planet: Decodable {
     let terrain: String
     let surfaceWater: String
     let population: String
-    let residents: [Character]
-    let films: [Film]
+    let residents: [String]
+    let films: [String]
 }
 
 struct Film: Decodable {

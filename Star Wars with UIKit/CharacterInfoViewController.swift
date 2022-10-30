@@ -9,13 +9,25 @@ import UIKit
 
 final class CharacterInfoViewController: UIViewController {
     
-    // MARK: - Private property
+    var character: Character!
     
-    private let character: Character! = nil
+    // MARK: - Private property
     
     private var characterInfoImage: UIImageView = {
         let image = UIImageView()
+        image.image = UIImage(named: "people")
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.backgroundColor = .black
+        image.layer.cornerRadius = 15
+        image.clipsToBounds = true
         return image
+    }()
+    
+    private var planetLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.adjustsFontSizeToFitWidth = true
+        return label
     }()
     
     
@@ -24,15 +36,46 @@ final class CharacterInfoViewController: UIViewController {
         
         self.view.backgroundColor = UIColor.white
         self.navigationItem.title = character.name
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        
+//        planetLabel.text = character.homeworld
         
         view.addSubview(characterInfoImage)
+        view.addSubview(planetLabel)
         
         NSLayoutConstraint.activate([
-            characterInfoImage.topAnchor.constraint(equalTo: view.topAnchor),
-            characterInfoImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            characterInfoImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            characterInfoImage.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            characterInfoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            characterInfoImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            characterInfoImage.widthAnchor.constraint(equalToConstant: 200),
+            characterInfoImage.heightAnchor.constraint(equalToConstant: 150),
+            
+            planetLabel.topAnchor.constraint(equalTo: characterInfoImage.bottomAnchor, constant: 20),
+            planetLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
+        
+        fetchPlanet()
+    }
+    
+    private func fetchPlanet() {
+        guard let url = URL(string: character.homeworld) else { return }
+        
+        URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
+            do {
+                guard let data = data else {
+                    print(error?.localizedDescription ?? "Not error")
+                    return
+                }
+                
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let jsonPlanet = try decoder.decode(Planet.self, from: data)
+                
+                DispatchQueue.main.async {
+                    self?.planetLabel.text = jsonPlanet.name
+                }
+                
+            } catch {
+        
+            }
+        }.resume()
     }
 }

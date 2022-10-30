@@ -57,13 +57,12 @@ final class CharacterViewController: UIViewController {
     private func fechData() {
         guard let url = URL(string: Link.characterLink.rawValue) else { return }
         
-        URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+        URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
             do {
-                guard let data = data, let response = response else {
+                guard let data = data else {
                     print(error?.localizedDescription ?? "Not error")
                     return
                 }
-                print(response)
                 
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -86,11 +85,13 @@ final class CharacterViewController: UIViewController {
 // MARK: - UITableViewDelegate
 
 extension CharacterViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let character = characters[indexPath.row]
-//
-//        
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let characterRow = characters[indexPath.row]
+        let characterInfoViewController = CharacterInfoViewController()
+        characterInfoViewController.character = characterRow
+        navigationController?.pushViewController(characterInfoViewController, animated: true)
+        characterTabaleView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 // MARK: - UITableViewDataSource
