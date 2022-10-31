@@ -65,11 +65,11 @@ final class FilmsViewController: UIViewController {
 
 extension FilmsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let filmRow = films[indexPath.row]
-//        let characterInfoViewController = CharacterInfoViewController()
-//        characterInfoViewController.character = filmRow
-//        navigationController?.pushViewController(characterInfoViewController, animated: true)
-//        characterTabaleView.deselectRow(at: indexPath, animated: true)
+        let filmRow = films[indexPath.row]
+        let filmInfoViewController = FilmInfoViewController()
+        filmInfoViewController.film = filmRow
+        navigationController?.pushViewController(filmInfoViewController, animated: true)
+        filmTabaleView.deselectRow(at: indexPath, animated: true)
     }
 }
 
