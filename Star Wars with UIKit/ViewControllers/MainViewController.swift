@@ -56,9 +56,9 @@ extension MainViewController: UICollectionViewDelegate {
             navigationController?.pushViewController(character, animated: true)
             character.navigationTitle = "Characters"
         } else if userAction.collectionLabel == "Films" {
-            let character = CharacterViewController()
-            navigationController?.pushViewController(character, animated: true)
-            character.navigationTitle = "Films"
+            let film = FilmsViewController()
+            navigationController?.pushViewController(film, animated: true)
+            film.navigationTitle = "Films"
         }
     }
 }
