@@ -116,6 +116,14 @@ final class CharacterInfoViewController: UIViewController {
         characterInfoImage.widthAnchor.constraint(equalToConstant: 350).isActive = true
         characterInfoImage.heightAnchor.constraint(equalToConstant: 200).isActive = true
     }
+    
+    private func setupLabel(nameKey: String? = "") -> UILabel {
+        let label = UILabel()
+        label.text = nameKey
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.adjustsFontSizeToFitWidth = true
+        return label
+    }
 }
 
 // MARK: - Networking
@@ -132,3 +140,5 @@ extension CharacterInfoViewController {
         }
     }
 }
+
+

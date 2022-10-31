@@ -25,6 +25,17 @@ struct Character: Decodable {
     let homeworld: String
     let films: [String]
     let starships: [String]
+    
+    var description: String {
+        """
+    Name: \(name)
+    BirthYear: \(birthYear)
+    Gender: \(gender)
+    Height: \(height)
+    Mass: \(mass)
+    HairColor: \(hairColor)
+    """
+    }
 }
 
 struct Planet: Decodable {
@@ -41,6 +52,12 @@ struct Planet: Decodable {
     let films: [String]
 }
 
+struct FilmStarWars: Decodable {
+    let next: String?
+    let previous: String?
+    let results: [Film]
+}
+
 struct Film: Decodable {
     let title: String
     let episodeId: Int
@@ -48,9 +65,9 @@ struct Film: Decodable {
     let director: String
     let producer: String
     let releaseDate: String
-    let characters: [Character]
-    let planets: [Planet]
-    let starships: [Starchip]
+    let characters: [String]
+    let planets: [String]
+    let starships: [String]
 }
 
 struct Starchip: Decodable {

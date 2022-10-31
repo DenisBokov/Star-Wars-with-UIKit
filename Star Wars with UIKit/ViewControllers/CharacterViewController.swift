@@ -9,9 +9,12 @@ import UIKit
 
 final class CharacterViewController: UIViewController {
     
+    var navigationTitle: String!
+    
     // MARK: - Private property
     
     private var characters: [Character] = []
+    private var films: [Film] = []
     private let characterTabaleView = UITableView()
     private let activityIndicator: UIActivityIndicatorView = {
         let activityView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
@@ -25,7 +28,7 @@ final class CharacterViewController: UIViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor.white
-        self.navigationItem.title = "Character"
+        self.navigationItem.title = navigationTitle
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
         characterTabaleView.rowHeight = 100
@@ -51,7 +54,11 @@ final class CharacterViewController: UIViewController {
         characterTabaleView.dataSource = self
         characterTabaleView.delegate = self
         
-        fechDataForAllCharacters()
+        if navigationTitle == "Characters" {
+            fechDataForAllCharacters()
+        } else if navigationTitle == "Films" {
+            fechDataForAllFilms()
+        }
     }
 }
 
@@ -71,7 +78,16 @@ extension CharacterViewController: UITableViewDelegate {
 
 extension CharacterViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        characters.count
+//        characters.count
+        var count: Int = 0
+        
+        if navigationTitle == "Characters" {
+             count = characters.count
+        } else if navigationTitle == "Films" {
+            count =  films.count
+        }
+        
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -85,14 +101,31 @@ extension CharacterViewController: UITableViewDataSource {
         }
         
         let image = Image.allCases
+
+//        image.forEach { image in
+//            if characters[indexPath.row].name == image.rawValue {
+//                cell.characterImage.image = UIImage(named: image.rawValue)
+//            }
+//        }
         
-        image.forEach { image in
-            if characters[indexPath.row].name == image.rawValue {
-                cell.characterImage.image = UIImage(named: image.rawValue)
+        if navigationTitle == "Characters" {
+            cell.characterNameLabel.text = characters[indexPath.row].name
+//            cell.characterImage.image = UIImage(named: "people")
+            image.forEach { image in
+                if characters[indexPath.row].name == image.rawValue {
+                    cell.characterImage.image = UIImage(named: image.rawValue)
+                }
+            }
+        } else if navigationTitle == "Films" {
+            cell.characterNameLabel.text = films[indexPath.row].title
+//            cell.characterImage.image = UIImage(named: "people")
+            image.forEach { image in
+                if characters[indexPath.row].name == image.rawValue {
+                    cell.characterImage.image = UIImage(named: image.rawValue)
+                }
             }
         }
-    
-        cell.characterNameLabel.text = characters[indexPath.row].name
+//        cell.characterNameLabel.text = characters[indexPath.row].name
         
         return cell
     }
@@ -106,6 +139,19 @@ extension CharacterViewController {
             switch result {
             case .success(let jsonCharacter):
                 self?.characters = jsonCharacter.results
+                self?.activityIndicator.stopAnimating()
+                self?.characterTabaleView.reloadData()
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    private func fechDataForAllFilms() {
+        NetworkManager.shared.fetch(FilmStarWars.self, from: Link.filmsLink.rawValue) { [weak self] result in
+            switch result {
+            case .success(let jsonFilms):
+                self?.films = jsonFilms.results
                 self?.activityIndicator.stopAnimating()
                 self?.characterTabaleView.reloadData()
             case .failure(let error):
