@@ -14,6 +14,7 @@
 		EF66AF8F29027B3D00890F6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF66AF8D29027B3D00890F6A /* LaunchScreen.storyboard */; };
 		EF66AF97290287CE00890F6A /* UserActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF66AF96290287CE00890F6A /* UserActionCell.swift */; };
 		EF66AF992902E5C100890F6A /* CollectionCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF66AF982902E5C100890F6A /* CollectionCellModel.swift */; };
+		EF705041290FF00100CA404F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF705040290FF00100CA404F /* NetworkManager.swift */; };
 		EF7C2476290C76F20090D668 /* CharacterInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7C2475290C76F20090D668 /* CharacterInfoViewController.swift */; };
 		EFF627FC2906C3B400D62DD1 /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF627FB2906C3B400D62DD1 /* CharacterViewController.swift */; };
 		EFF627FE2906D06600D62DD1 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF627FD2906D06600D62DD1 /* CharacterCell.swift */; };
@@ -30,6 +31,7 @@
 		EF66AF9029027B3D00890F6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF66AF96290287CE00890F6A /* UserActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActionCell.swift; sourceTree = "<group>"; };
 		EF66AF982902E5C100890F6A /* CollectionCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCellModel.swift; sourceTree = "<group>"; };
+		EF705040290FF00100CA404F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		EF7C2475290C76F20090D668 /* CharacterInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfoViewController.swift; sourceTree = "<group>"; };
 		EFF627FB2906C3B400D62DD1 /* CharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
 		EFF627FD2906D06600D62DD1 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				EFF627FF290719A700D62DD1 /* Character.swift */,
 				EFF627FD2906D06600D62DD1 /* CharacterCell.swift */,
 				EF7C2475290C76F20090D668 /* CharacterInfoViewController.swift */,
+				EF705040290FF00100CA404F /* NetworkManager.swift */,
 				EF66AF8229027B3C00890F6A /* AppDelegate.swift */,
 				EF66AF8429027B3C00890F6A /* SceneDelegate.swift */,
 				EF66AF8629027B3C00890F6A /* MainViewController.swift */,
@@ -154,6 +157,7 @@
 			files = (
 				EFF627FC2906C3B400D62DD1 /* CharacterViewController.swift in Sources */,
 				EF7C2476290C76F20090D668 /* CharacterInfoViewController.swift in Sources */,
+				EF705041290FF00100CA404F /* NetworkManager.swift in Sources */,
 				EF66AF992902E5C100890F6A /* CollectionCellModel.swift in Sources */,
 				EF66AF97290287CE00890F6A /* UserActionCell.swift in Sources */,
 				EFF627FE2906D06600D62DD1 /* CharacterCell.swift in Sources */,

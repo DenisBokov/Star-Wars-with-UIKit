@@ -51,35 +51,8 @@ final class CharacterViewController: UIViewController {
         characterTabaleView.dataSource = self
         characterTabaleView.delegate = self
         
-        fechData()
+        fechDataForAllCharacters()
     }
-    
-    private func fechData() {
-        guard let url = URL(string: Link.characterLink.rawValue) else { return }
-        
-        URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
-            do {
-                guard let data = data else {
-                    print(error?.localizedDescription ?? "Not error")
-                    return
-                }
-                
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                let jsonCharacter = try decoder.decode(PeopleStarWars.self, from: data)
-                self?.characters = jsonCharacter.results
-                
-                DispatchQueue.main.async {
-                    self?.characterTabaleView.reloadData()
-                    self?.activityIndicator.stopAnimating()
-                }
-    
-            } catch {
-                
-            }
-        }.resume()
-    }
-    
 }
 
 // MARK: - UITableViewDelegate
@@ -123,8 +96,23 @@ extension CharacterViewController: UITableViewDataSource {
         
         return cell
     }
-    
-    
+}
+
+// MARK: - Networking
+
+extension CharacterViewController {
+    private func fechDataForAllCharacters() {
+        NetworkManager.shared.fetch(PeopleStarWars.self, from: Link.characterLink.rawValue) { [weak self] result in
+            switch result {
+            case .success(let jsonCharacter):
+                self?.characters = jsonCharacter.results
+                self?.activityIndicator.stopAnimating()
+                self?.characterTabaleView.reloadData()
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }
 
 enum Image: String, CaseIterable {
