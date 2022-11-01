@@ -25,17 +25,6 @@ struct Character: Decodable {
     let homeworld: String
     let films: [String]
     let starships: [String]
-    
-    var description: String {
-        """
-    Name: \(name)
-    BirthYear: \(birthYear)
-    Gender: \(gender)
-    Height: \(height)
-    Mass: \(mass)
-    HairColor: \(hairColor)
-    """
-    }
 }
 
 struct Planet: Decodable {
