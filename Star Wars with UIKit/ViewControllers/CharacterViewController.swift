@@ -24,6 +24,12 @@ final class CharacterViewController: UIViewController {
         activityView.startAnimating()
         return activityView
     }()
+    private let characterNames = [
+        "Leia Organa", "C-3PO", "Luke Skywalker", "R2-D2", "Darth Vader", "Owen Lars", "Beru Whitesun lars",
+        "R5-D4", "Biggs Darklighter", "Obi-Wan Kenobi", "Anakin Skywalker", "Wilhuff Tarkin", "Chewbacca",
+        "Han Solo", "Greedo", "Jabba Desilijic Tiure", "Jabba Desilijic Tiure", "Wedge Antilles", "Jek Tono Porkins",
+        "Yoda", "Palpatine"
+    ]
     
     // MARK: - Override UIViewController
     
@@ -58,7 +64,7 @@ final class CharacterViewController: UIViewController {
             characterTabaleView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
         
-        characterTabaleView.register(CharacterCell.self, forCellReuseIdentifier: CharacterCell.characterReuseId)
+        characterTabaleView.register(SecondScreenCell.self, forCellReuseIdentifier: SecondScreenCell.reuseId)
         characterTabaleView.dataSource = self
         characterTabaleView.delegate = self
     }
@@ -116,14 +122,14 @@ extension CharacterViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell =  tableView.dequeueReusableCell(
-            withIdentifier: CharacterCell.characterReuseId,
-            for: indexPath) as? CharacterCell
+            withIdentifier: SecondScreenCell.reuseId,
+            for: indexPath) as? SecondScreenCell
         else {
             return UITableViewCell()
         }
         
         let character = characters[indexPath.row]
-        cell.configure(with: character)
+        cell.configure(with: character.name, images: characterNames)
         
         return cell
     }

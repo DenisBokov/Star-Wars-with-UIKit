@@ -22,6 +22,10 @@ final class FilmsViewController: UIViewController {
         activityView.startAnimating()
         return activityView
     }()
+    private let filmTitles = [
+        "A New Hope", "Attack of the Clones", "Return of the Jedi", "Revenge of the Sith", "The Empire Strikes Back",
+        "The Phantom Menace"
+    ]
     
     // MARK: - Override UIViewController
     
@@ -51,7 +55,7 @@ final class FilmsViewController: UIViewController {
         activityIndicator.startAnimating()
         activityIndicator.hidesWhenStopped = true
         
-        filmTabaleView.register(CharacterCell.self, forCellReuseIdentifier: CharacterCell.characterReuseId)
+        filmTabaleView.register(SecondScreenCell.self, forCellReuseIdentifier: SecondScreenCell.reuseId)
         filmTabaleView.dataSource = self
         filmTabaleView.delegate = self
         
@@ -83,20 +87,15 @@ extension FilmsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell =  tableView.dequeueReusableCell(
-            withIdentifier: CharacterCell.characterReuseId,
-            for: indexPath) as? CharacterCell
+            withIdentifier: SecondScreenCell.reuseId,
+            for: indexPath) as? SecondScreenCell
         else {
             return UITableViewCell()
             
         }
 
-        ImageStarWars.allCases.forEach { image in
-            if films[indexPath.row].title == image.rawValue {
-                cell.characterImage.image = UIImage(named: image.rawValue)
-            }
-        }
-        
-        cell.characterNameLabel.text = films[indexPath.row].title
+        let film = films[indexPath.row].title
+        cell.configure(with: film, images: filmTitles)
         
         return cell
     }
