@@ -122,13 +122,8 @@ extension CharacterViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        ImageStarWars.allCases.forEach { image in
-            if characters[indexPath.row].name == image.rawValue {
-                cell.characterImage.image = UIImage(named: image.rawValue)
-            }
-        }
-        
-        cell.characterNameLabel.text = characters[indexPath.row].name
+        let character = characters[indexPath.row]
+        cell.configure(with: character)
         
         return cell
     }

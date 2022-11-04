@@ -11,7 +11,7 @@ final class CharacterCell: UITableViewCell {
     
     static let characterReuseId = "characterCell"
     
-    var characterImage: UIImageView = {
+   var characterImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 10
@@ -49,5 +49,13 @@ final class CharacterCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
+    func configure(with character: Character) {
+        characterNameLabel.text = character.name
+        
+        ImageStarWars.allCases.forEach { image in
+            if character.name == image.rawValue {
+                characterImage.image = UIImage(named: image.rawValue)
+            }
+        }
+    }
 }
