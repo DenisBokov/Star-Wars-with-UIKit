@@ -15,6 +15,7 @@ final class CharacterViewController: UIViewController {
     
     // MARK: - Private property
     
+    private var peopleStarWars: PeopleStarWars?
     private var characters: [Character] = []
     private var films: [Film] = []
     private let characterTabaleView = UITableView()
@@ -53,43 +54,36 @@ final class CharacterViewController: UIViewController {
         characterTabaleView.delegate = self
         
         setupNavigationBar()
-        fechDataForAllCharacters()
+        fechDataForAllCharacters(with: Link.characterLink.rawValue)
       
     }
     
     private func setupNavigationBar() {
-        self.view.backgroundColor = UIColor.white
         self.navigationItem.title = navigationTitle
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
-//        let customViewNext = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
-//        customViewNext.text = "Next"
-//        customViewNext.textAlignment = .center
-//        customViewNext.backgroundColor = .lightGray
-//        customViewNext.layer.cornerRadius = 10
-//        customViewNext.layer.masksToBounds = true
-//
-//        let customViewBack = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
-//        customViewNext.text = "Back"
-//        customViewNext.textAlignment = .center
-//        customViewNext.backgroundColor = .lightGray
-//        customViewNext.layer.cornerRadius = 10
-//        customViewNext.layer.masksToBounds = true
-        
         navigationItem.rightBarButtonItems = [
             UIBarButtonItem(
-                image: UIImage(systemName: "arrowshape.forward.fill"),
+                image: UIImage(systemName: "arrowshape.forward"),
                 style: .done,
                 target: self,
-                action: nil
+                action: #selector(goToNextPage)
             ),
             UIBarButtonItem(
-                image: UIImage(systemName: "arrowshape.backward.fill"),
+                image: UIImage(systemName: "arrowshape.backward"),
                 style: .done,
                 target: self,
-                action: nil
+                action: #selector(backToPage)
             )
         ]
+    }
+    
+    @objc private func goToNextPage() {
+        fechDataForAllCharacters(with: peopleStarWars?.next)
+    }
+    
+    @objc private func backToPage() {
+        fechDataForAllCharacters(with: peopleStarWars?.previous)
     }
 }
 
@@ -139,10 +133,11 @@ extension CharacterViewController: UITableViewDataSource {
 // MARK: - Networking
 
 extension CharacterViewController {
-    private func fechDataForAllCharacters() {
-        NetworkManager.shared.fetch(PeopleStarWars.self, from: "https://swapi.dev/api/people/?page=2") { [weak self] result in
+    private func fechDataForAllCharacters(with url: String?) {
+        NetworkManager.shared.fetch(PeopleStarWars.self, from: url) { [weak self] result in
             switch result {
             case .success(let jsonCharacter):
+                self?.peopleStarWars = jsonCharacter
                 self?.characters = jsonCharacter.results
                 self?.activityIndicator.stopAnimating()
                 self?.characterTabaleView.reloadData()
@@ -170,6 +165,16 @@ enum Image: String, CaseIterable {
     case imageRevengeOfTheSith = "Revenge of the Sith"
     case imageTheEmpireStrikesBack = "The Empire Strikes Back"
     case imageThePhantomMenace = "The Phantom Menace"
+    case imageAnakinSkywalker = "Anakin Skywalker"
+    case imageWilhuffTarkin = "Wilhuff Tarkin"
+    case imageChewbacca = "Chewbacca"
+    case imageHanSolo = "Han Solo"
+    case imageGreedo = "Greedo"
+    case imageJabbaDesilijicTiure = "Jabba Desilijic Tiure"
+    case imageWedgeAntilles = "Wedge Antilles"
+    case imageJekTonoPorkins = "Jek Tono Porkins"
+    case imageYoda = "Yoda"
+    case Palpatine = "Palpatine"
 }
     
     

@@ -19,9 +19,9 @@ class NetworkManager {
     
     private init() {}
     
-    func fetch<T: Decodable>(_ type: T.Type, from url: String, complition: @escaping(Result<T, NetworkError>) -> Void) {
+    func fetch<T: Decodable>(_ type: T.Type, from url: String?, complition: @escaping(Result<T, NetworkError>) -> Void) {
         
-        guard let url = URL(string: url) else {
+        guard let stringURL = url, let url = URL(string: stringURL) else {
             complition(.failure(.invalidURL))
             return
         }
