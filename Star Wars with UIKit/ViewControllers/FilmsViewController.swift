@@ -89,10 +89,8 @@ extension FilmsViewController: UITableViewDataSource {
             return UITableViewCell()
             
         }
-        
-        let image = ImageStarWars.allCases
 
-        image.forEach { image in
+        ImageStarWars.allCases.forEach { image in
             if films[indexPath.row].title == image.rawValue {
                 cell.characterImage.image = UIImage(named: image.rawValue)
             }

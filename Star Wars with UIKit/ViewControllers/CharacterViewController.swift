@@ -30,6 +30,18 @@ final class CharacterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
+        
+        setupNavigationBar()
+        fechDataForAllCharacters(with: Link.characterLink.rawValue)
+        setupTableView()
+      
+    }
+    
+    //MARK: - Private function
+    
+    private func setupTableView() {
         characterTabaleView.rowHeight = 100
         
         view.addSubview(characterTabaleView)
@@ -46,19 +58,10 @@ final class CharacterViewController: UIViewController {
             characterTabaleView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
         
-        activityIndicator.startAnimating()
-        activityIndicator.hidesWhenStopped = true
-        
         characterTabaleView.register(CharacterCell.self, forCellReuseIdentifier: CharacterCell.characterReuseId)
         characterTabaleView.dataSource = self
         characterTabaleView.delegate = self
-        
-        setupNavigationBar()
-        fechDataForAllCharacters(with: Link.characterLink.rawValue)
-      
     }
-    
-    //MARK: - Private function 
     
     private func setupNavigationBar() {
         self.navigationItem.title = navigationTitle
