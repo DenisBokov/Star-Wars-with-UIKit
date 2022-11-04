@@ -12,7 +12,7 @@ final class CharacterInfoViewController: UIViewController {
     // MARK: - Property
     
     var character: Character!
-    let images = Image.allCases
+    let images = ImageStarWars.allCases
     
     // MARK: - Private property
     

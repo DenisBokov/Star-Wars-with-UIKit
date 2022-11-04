@@ -12,7 +12,7 @@ final class FilmInfoViewController: UIViewController {
     // MARK: - Public Property
     
     var film: Film!
-    let images = Image.allCases
+    let images = ImageStarWars.allCases
     
     // MARK: - Private property
     

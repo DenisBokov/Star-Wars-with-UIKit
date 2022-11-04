@@ -58,6 +58,8 @@ final class CharacterViewController: UIViewController {
       
     }
     
+    //MARK: - Private function 
+    
     private func setupNavigationBar() {
         self.navigationItem.title = navigationTitle
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -79,10 +81,12 @@ final class CharacterViewController: UIViewController {
     }
     
     @objc private func goToNextPage() {
+        activityIndicator.startAnimating()
         fechDataForAllCharacters(with: peopleStarWars?.next)
     }
     
     @objc private func backToPage() {
+        activityIndicator.startAnimating()
         fechDataForAllCharacters(with: peopleStarWars?.previous)
     }
 }
@@ -113,12 +117,9 @@ extension CharacterViewController: UITableViewDataSource {
             for: indexPath) as? CharacterCell
         else {
             return UITableViewCell()
-            
         }
         
-        let image = Image.allCases
-
-        image.forEach { image in
+        ImageStarWars.allCases.forEach { image in
             if characters[indexPath.row].name == image.rawValue {
                 cell.characterImage.image = UIImage(named: image.rawValue)
             }
@@ -148,7 +149,7 @@ extension CharacterViewController {
     }
 }
 
-enum Image: String, CaseIterable {
+enum ImageStarWars: String, CaseIterable {
     case imageLeiaOrgana = "Leia Organa"
     case imageC3PO = "C-3PO"
     case imageLuke = "Luke Skywalker"

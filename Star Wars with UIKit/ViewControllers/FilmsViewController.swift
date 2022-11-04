@@ -90,7 +90,7 @@ extension FilmsViewController: UITableViewDataSource {
             
         }
         
-        let image = Image.allCases
+        let image = ImageStarWars.allCases
 
         image.forEach { image in
             if films[indexPath.row].title == image.rawValue {
