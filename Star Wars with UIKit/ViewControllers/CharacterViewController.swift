@@ -29,10 +29,6 @@ final class CharacterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.white
-        self.navigationItem.title = navigationTitle
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        
         characterTabaleView.rowHeight = 100
         
         view.addSubview(characterTabaleView)
@@ -56,9 +52,44 @@ final class CharacterViewController: UIViewController {
         characterTabaleView.dataSource = self
         characterTabaleView.delegate = self
         
-        
+        setupNavigationBar()
         fechDataForAllCharacters()
       
+    }
+    
+    private func setupNavigationBar() {
+        self.view.backgroundColor = UIColor.white
+        self.navigationItem.title = navigationTitle
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        
+//        let customViewNext = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+//        customViewNext.text = "Next"
+//        customViewNext.textAlignment = .center
+//        customViewNext.backgroundColor = .lightGray
+//        customViewNext.layer.cornerRadius = 10
+//        customViewNext.layer.masksToBounds = true
+//
+//        let customViewBack = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+//        customViewNext.text = "Back"
+//        customViewNext.textAlignment = .center
+//        customViewNext.backgroundColor = .lightGray
+//        customViewNext.layer.cornerRadius = 10
+//        customViewNext.layer.masksToBounds = true
+        
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(
+                image: UIImage(systemName: "arrowshape.forward.fill"),
+                style: .done,
+                target: self,
+                action: nil
+            ),
+            UIBarButtonItem(
+                image: UIImage(systemName: "arrowshape.backward.fill"),
+                style: .done,
+                target: self,
+                action: nil
+            )
+        ]
     }
 }
 
@@ -109,7 +140,7 @@ extension CharacterViewController: UITableViewDataSource {
 
 extension CharacterViewController {
     private func fechDataForAllCharacters() {
-        NetworkManager.shared.fetch(PeopleStarWars.self, from: Link.characterLink.rawValue) { [weak self] result in
+        NetworkManager.shared.fetch(PeopleStarWars.self, from: "https://swapi.dev/api/people/?page=2") { [weak self] result in
             switch result {
             case .success(let jsonCharacter):
                 self?.characters = jsonCharacter.results

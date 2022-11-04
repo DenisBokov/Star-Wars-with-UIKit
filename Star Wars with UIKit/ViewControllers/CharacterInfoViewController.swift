@@ -102,7 +102,7 @@ final class CharacterInfoViewController: UIViewController {
         labelOne.widthAnchor.constraint(equalToConstant: 100).isActive = true
         labelOne.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
-        stackview.addArrangedSubview(labelTwo)
+        stackview.addArrangedSubview(labelTwo) 
         labelTwo.widthAnchor.constraint(equalToConstant: 100).isActive = true
         labelTwo.heightAnchor.constraint(equalToConstant: 100).isActive = true
         

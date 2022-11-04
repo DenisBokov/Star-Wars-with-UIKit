@@ -13,6 +13,7 @@ final class CharacterCell: UITableViewCell {
     
     var characterImage: UIImageView = {
         let imageView = UIImageView()
+        imageView.image = UIImage(named: "image not found")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 10
         imageView.clipsToBounds = true

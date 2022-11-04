@@ -93,6 +93,8 @@ final class FilmInfoViewController: UIViewController {
         return label
     }()
     
+    // MARK: - viewDidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
