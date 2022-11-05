@@ -12,6 +12,7 @@ final class CharacterInfoViewController: UIViewController {
     // MARK: - Public Property
     
     var character: Character!
+    let imageCharacter = ImageData.characterNames
     
     // MARK: - Private property
     
@@ -76,9 +77,9 @@ final class CharacterInfoViewController: UIViewController {
         self.view.backgroundColor = UIColor.white
         self.navigationItem.title = character.name
         
-        ImageStarWars.allCases.forEach { image in
-            if image.rawValue == character.name {
-                characterInfoImage.image = UIImage(named: image.rawValue)
+        imageCharacter.forEach { image in
+            if image == character.name {
+                characterInfoImage.image = UIImage(named: image)
             }
         }
         

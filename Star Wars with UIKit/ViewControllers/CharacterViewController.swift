@@ -13,6 +13,7 @@ final class CharacterViewController: UIViewController {
     
     var navigationTitle: String!
     
+    
     // MARK: - Private property
     
     private var peopleStarWars: PeopleStarWars?
@@ -24,12 +25,7 @@ final class CharacterViewController: UIViewController {
         activityView.startAnimating()
         return activityView
     }()
-    private let characterNames = [
-        "Leia Organa", "C-3PO", "Luke Skywalker", "R2-D2", "Darth Vader", "Owen Lars", "Beru Whitesun lars",
-        "R5-D4", "Biggs Darklighter", "Obi-Wan Kenobi", "Anakin Skywalker", "Wilhuff Tarkin", "Chewbacca",
-        "Han Solo", "Greedo", "Jabba Desilijic Tiure", "Jabba Desilijic Tiure", "Wedge Antilles", "Jek Tono Porkins",
-        "Yoda", "Palpatine"
-    ]
+    let characterNames = ImageData.characterNames
     
     // MARK: - Override UIViewController
     
@@ -153,34 +149,5 @@ extension CharacterViewController {
     }
 }
 
-enum ImageStarWars: String, CaseIterable {
-    case imageLeiaOrgana = "Leia Organa"
-    case imageC3PO = "C-3PO"
-    case imageLuke = "Luke Skywalker"
-    case imageR2D2 = "R2-D2"
-    case imageDarthVader = "Darth Vader"
-    case imageOwenLars = "Owen Lars"
-    case imageBeruWhitesunLars = "Beru Whitesun lars"
-    case imageR5D4 = "R5-D4"
-    case imageBiggsDarklighter = "Biggs Darklighter"
-    case imageObiWanKenobi = "Obi-Wan Kenobi"
-    case imageANewHope = "A New Hope"
-    case imageAttackOfTheClones = "Attack of the Clones"
-    case imageReturnOfTheJedi = "Return of the Jedi"
-    case imageRevengeOfTheSith = "Revenge of the Sith"
-    case imageTheEmpireStrikesBack = "The Empire Strikes Back"
-    case imageThePhantomMenace = "The Phantom Menace"
-    case imageAnakinSkywalker = "Anakin Skywalker"
-    case imageWilhuffTarkin = "Wilhuff Tarkin"
-    case imageChewbacca = "Chewbacca"
-    case imageHanSolo = "Han Solo"
-    case imageGreedo = "Greedo"
-    case imageJabbaDesilijicTiure = "Jabba Desilijic Tiure"
-    case imageWedgeAntilles = "Wedge Antilles"
-    case imageJekTonoPorkins = "Jek Tono Porkins"
-    case imageYoda = "Yoda"
-    case Palpatine = "Palpatine"
-}
-    
     
 

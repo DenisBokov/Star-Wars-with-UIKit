@@ -22,10 +22,7 @@ final class FilmsViewController: UIViewController {
         activityView.startAnimating()
         return activityView
     }()
-    private let filmTitles = [
-        "A New Hope", "Attack of the Clones", "Return of the Jedi", "Revenge of the Sith", "The Empire Strikes Back",
-        "The Phantom Menace"
-    ]
+    private let filmTitles = ImageData.filmTitles
     
     // MARK: - Override UIViewController
     

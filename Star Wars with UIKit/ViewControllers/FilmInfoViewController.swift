@@ -12,6 +12,7 @@ final class FilmInfoViewController: UIViewController {
     // MARK: - Public Property
     
     var film: Film!
+    private var imagefilms = ImageData.filmTitles
     
     // MARK: - Private property
     
@@ -100,9 +101,9 @@ final class FilmInfoViewController: UIViewController {
         self.view.backgroundColor = UIColor.white
         self.navigationItem.title = film.title
         
-        ImageStarWars.allCases.forEach { image in
-            if image.rawValue == film.title {
-                filmInfoImage.image = UIImage(named: image.rawValue)
+        imagefilms.forEach { image in
+            if image == film.title {
+                filmInfoImage.image = UIImage(named: image)
             }
         }
         

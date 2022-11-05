@@ -9,9 +9,13 @@ import UIKit
 
 final class SecondScreenCell: UITableViewCell {
     
+    // MARK: - Static Property
+    
     static let reuseId = "secondScreenCell"
     
-   var imageSecondScreen: UIImageView = {
+    // MARK: - Private property
+    
+    private lazy var imageSecondScreen: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 10
@@ -19,7 +23,7 @@ final class SecondScreenCell: UITableViewCell {
         return imageView
     }()
     
-    var secondScreenNameLabel: UILabel = {
+    private lazy var secondScreenNameLabel: UILabel = {
         let name = UILabel()
         name.translatesAutoresizingMaskIntoConstraints = false
         name.adjustsFontSizeToFitWidth = true
@@ -48,6 +52,8 @@ final class SecondScreenCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Private function
     
     func configure(with character: String, images: [String]) {
         secondScreenNameLabel.text = character
