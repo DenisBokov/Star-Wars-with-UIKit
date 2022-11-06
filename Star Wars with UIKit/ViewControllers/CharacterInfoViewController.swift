@@ -12,9 +12,10 @@ final class CharacterInfoViewController: UIViewController {
     // MARK: - Public Property
     
     var character: Character!
-    let imageCharacter = ImageData.characterNames
     
     // MARK: - Private property
+    
+    private let imageCharacter = ImageData.characterNames
     
     private lazy var characterInfoImage: UIImageView = {
         let image = UIImageView()
@@ -32,36 +33,6 @@ final class CharacterInfoViewController: UIViewController {
         return label
     }()
     
-    private lazy var genderLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.adjustsFontSizeToFitWidth = true
-        return label
-    }()
-    
-    private lazy var heightLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.adjustsFontSizeToFitWidth = true
-        return label
-    }()
-    
-    private func setupKeyLabel(with text: String) -> UILabel {
-        let label = UILabel()
-        label.text = text
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.adjustsFontSizeToFitWidth = true
-        return label
-    }
-    
-    private func setupValueLabel() -> UILabel {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.adjustsFontSizeToFitWidth = true
-        return label
-    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -74,15 +45,23 @@ final class CharacterInfoViewController: UIViewController {
             }
         }
         
-        setupLayout(with: setupKeyLabel(with: "Home world: "), and: planetLabel)
-        setupLayout(with: setupKeyLabel(with: "Gender: "), and: genderLabel, with: 20)
-        setupLayout(with: setupKeyLabel(with: "Height: "), and: setupValueLabel(), with: 40)
-        
-        genderLabel.text = character.gender
-        heightLabel.text = character.height
+        setupLayout(with: setupLabel(for: "Home world: "), and: planetLabel)
+        setupLayout(with: setupLabel(for: "Gender: "), and: setupLabel(for: character.gender), with: 20)
+        setupLayout(with: setupLabel(for: "Height: "), and: setupLabel(for: character.height), with: 40)
         
         fetchPlanet()
     }
+    
+    // MARK: - Private methods
+    
+    private func setupLabel(for string: String) -> UILabel {
+        let label = UILabel()
+        label.text = string
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.adjustsFontSizeToFitWidth = true
+        return label
+    }
+    
     
     private func setupLayout(with labelOne: UILabel, and labelTwo: UILabel, with constant: CGFloat? = 0) {
         let stackview = UIStackView()
@@ -106,14 +85,6 @@ final class CharacterInfoViewController: UIViewController {
         characterInfoImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         characterInfoImage.widthAnchor.constraint(equalToConstant: 350).isActive = true
         characterInfoImage.heightAnchor.constraint(equalToConstant: 200).isActive = true
-    }
-    
-    private func setupLabel(nameKey: String? = "") -> UILabel {
-        let label = UILabel()
-        label.text = nameKey
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.adjustsFontSizeToFitWidth = true
-        return label
     }
 }
 
