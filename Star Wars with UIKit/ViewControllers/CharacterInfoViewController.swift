@@ -32,24 +32,8 @@ final class CharacterInfoViewController: UIViewController {
         return label
     }()
     
-    private lazy var nameKye: UILabel = {
-        let label = UILabel()
-        label.text = "Home world: "
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.adjustsFontSizeToFitWidth = true
-        return label
-    }()
-    
     private lazy var genderLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.adjustsFontSizeToFitWidth = true
-        return label
-    }()
-    
-    private lazy var nameGenderKye: UILabel = {
-        let label = UILabel()
-        label.text = "Gender: "
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontSizeToFitWidth = true
         return label
@@ -62,13 +46,20 @@ final class CharacterInfoViewController: UIViewController {
         return label
     }()
     
-    private lazy var nameHeightKye: UILabel = {
+    private func setupKeyLabel(with text: String) -> UILabel {
         let label = UILabel()
-        label.text = "Height: "
+        label.text = text
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontSizeToFitWidth = true
         return label
-    }()
+    }
+    
+    private func setupValueLabel() -> UILabel {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.adjustsFontSizeToFitWidth = true
+        return label
+    }
     
     
     override func viewDidLoad() {
@@ -83,9 +74,9 @@ final class CharacterInfoViewController: UIViewController {
             }
         }
         
-        setupLayout(with: nameKye, and: planetLabel)
-        setupLayout(with: nameGenderKye, and: genderLabel, with: 20)
-        setupLayout(with: nameHeightKye, and: heightLabel, with: 40)
+        setupLayout(with: setupKeyLabel(with: "Home world: "), and: planetLabel)
+        setupLayout(with: setupKeyLabel(with: "Gender: "), and: genderLabel, with: 20)
+        setupLayout(with: setupKeyLabel(with: "Height: "), and: setupValueLabel(), with: 40)
         
         genderLabel.text = character.gender
         heightLabel.text = character.height

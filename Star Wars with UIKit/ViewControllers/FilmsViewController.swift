@@ -29,9 +29,8 @@ final class FilmsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.white
-        self.navigationItem.title = navigationTitle
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = navigationTitle
+        navigationController?.navigationBar.prefersLargeTitles = true
         
         filmTabaleView.rowHeight = 100
         
