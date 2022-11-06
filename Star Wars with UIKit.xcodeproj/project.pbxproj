@@ -20,7 +20,8 @@
 		EF70504B291069DD00CA404F /* FilmStarWars.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70504A291069DD00CA404F /* FilmStarWars.swift */; };
 		EF70504D29106C7200CA404F /* FilmInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70504C29106C7200CA404F /* FilmInfoViewController.swift */; };
 		EF7C2476290C76F20090D668 /* CharacterInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7C2475290C76F20090D668 /* CharacterInfoViewController.swift */; };
-		EFF627FC2906C3B400D62DD1 /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF627FB2906C3B400D62DD1 /* CharacterViewController.swift */; };
+		EFDA7C0B29175C3100E3EC78 /* PlanetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDA7C0A29175C3100E3EC78 /* PlanetsViewController.swift */; };
+		EFF627FC2906C3B400D62DD1 /* CharacterыViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF627FB2906C3B400D62DD1 /* CharacterыViewController.swift */; };
 		EFF627FE2906D06600D62DD1 /* SecondScreenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF627FD2906D06600D62DD1 /* SecondScreenCell.swift */; };
 		EFF62800290719A700D62DD1 /*  PeopleStarWars.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF627FF290719A700D62DD1 /*  PeopleStarWars.swift */; };
 /* End PBXBuildFile section */
@@ -41,7 +42,8 @@
 		EF70504A291069DD00CA404F /* FilmStarWars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStarWars.swift; sourceTree = "<group>"; };
 		EF70504C29106C7200CA404F /* FilmInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmInfoViewController.swift; sourceTree = "<group>"; };
 		EF7C2475290C76F20090D668 /* CharacterInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfoViewController.swift; sourceTree = "<group>"; };
-		EFF627FB2906C3B400D62DD1 /* CharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
+		EFDA7C0A29175C3100E3EC78 /* PlanetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsViewController.swift; sourceTree = "<group>"; };
+		EFF627FB2906C3B400D62DD1 /* CharacterыViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterыViewController.swift"; sourceTree = "<group>"; };
 		EFF627FD2906D06600D62DD1 /* SecondScreenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondScreenCell.swift; sourceTree = "<group>"; };
 		EFF627FF290719A700D62DD1 /*  PeopleStarWars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " PeopleStarWars.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,7 +106,8 @@
 				EF66AF8629027B3C00890F6A /* MainViewController.swift */,
 				EF7050482910668A00CA404F /* FilmsViewController.swift */,
 				EF70504C29106C7200CA404F /* FilmInfoViewController.swift */,
-				EFF627FB2906C3B400D62DD1 /* CharacterViewController.swift */,
+				EFF627FB2906C3B400D62DD1 /* CharacterыViewController.swift */,
+				EFDA7C0A29175C3100E3EC78 /* PlanetsViewController.swift */,
 				EF7C2475290C76F20090D668 /* CharacterInfoViewController.swift */,
 			);
 			path = ViewControllers;
@@ -208,7 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF70504B291069DD00CA404F /* FilmStarWars.swift in Sources */,
-				EFF627FC2906C3B400D62DD1 /* CharacterViewController.swift in Sources */,
+				EFF627FC2906C3B400D62DD1 /* CharacterыViewController.swift in Sources */,
 				EF7C2476290C76F20090D668 /* CharacterInfoViewController.swift in Sources */,
 				EF705041290FF00100CA404F /* NetworkManager.swift in Sources */,
 				EF7050492910668A00CA404F /* FilmsViewController.swift in Sources */,
@@ -221,6 +224,7 @@
 				EF70504D29106C7200CA404F /* FilmInfoViewController.swift in Sources */,
 				EFF62800290719A700D62DD1 /*  PeopleStarWars.swift in Sources */,
 				EF1B9E432916A67000843B25 /* ImageData.swift in Sources */,
+				EFDA7C0B29175C3100E3EC78 /* PlanetsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,9 +378,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Test.test.Star-Wars-with-UIKit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -402,9 +409,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Test.test.Star-Wars-with-UIKit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

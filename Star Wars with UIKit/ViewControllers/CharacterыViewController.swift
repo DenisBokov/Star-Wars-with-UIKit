@@ -1,5 +1,5 @@
 //
-//  CharacterViewController.swift
+//  CharacterыViewController.swift
 //  Star Wars with UIKit
 //
 //  Created by Denis Bokov on 24.10.2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CharacterViewController: UIViewController {
+final class CharacterыViewController: UIViewController {
     
     // MARK: - Public property
     
@@ -25,7 +25,7 @@ final class CharacterViewController: UIViewController {
         activityView.startAnimating()
         return activityView
     }()
-    let characterNames = ImageData.characterNames
+    private let characterNames = ImageData.characterNames
     
     // MARK: - Override UIViewController
     
@@ -98,7 +98,7 @@ final class CharacterViewController: UIViewController {
 
 // MARK: - UITableViewDelegate
 
-extension CharacterViewController: UITableViewDelegate {
+extension CharacterыViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let characterRow = characters[indexPath.row]
         let characterInfoViewController = CharacterInfoViewController()
@@ -110,7 +110,7 @@ extension CharacterViewController: UITableViewDelegate {
 
 // MARK: - UITableViewDataSource
 
-extension CharacterViewController: UITableViewDataSource {
+extension CharacterыViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         characters.count
     }
@@ -133,7 +133,7 @@ extension CharacterViewController: UITableViewDataSource {
 
 // MARK: - Networking
 
-extension CharacterViewController {
+extension CharacterыViewController {
     private func fechDataForAllCharacters(with url: String?) {
         NetworkManager.shared.fetch(PeopleStarWars.self, from: url) { [weak self] result in
             switch result {

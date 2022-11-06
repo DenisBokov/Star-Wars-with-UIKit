@@ -52,13 +52,17 @@ extension MainViewController: UICollectionViewDelegate {
         let userAction = collectionCellModel[indexPath.item]
         
         if userAction.collectionLabel == "Characters" {
-            let character = CharacterViewController()
-            navigationController?.pushViewController(character, animated: true)
-            character.navigationTitle = "Characters"
+            let characterViewController = CharacterыViewController()
+            navigationController?.pushViewController(characterViewController, animated: true)
+            characterViewController.navigationTitle = "Characters"
         } else if userAction.collectionLabel == "Films" {
-            let film = FilmsViewController()
-            navigationController?.pushViewController(film, animated: true)
-            film.navigationTitle = "Films"
+            let filmViewController = FilmsViewController()
+            navigationController?.pushViewController(filmViewController, animated: true)
+            filmViewController.navigationTitle = "Films"
+        } else if userAction.collectionLabel == "Planets" {
+            let planetViewController = PlanetsViewController()
+            navigationController?.pushViewController(planetViewController, animated: true)
+            planetViewController.navigationTitle = "Planets"
         }
     }
 }
