@@ -26,7 +26,7 @@ final class CharacterInfoViewController: UIViewController {
         return image
     }()
     
-    private lazy var planetLabel: UILabel = {
+    private lazy var homeWorldLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontSizeToFitWidth = true
@@ -45,7 +45,7 @@ final class CharacterInfoViewController: UIViewController {
             }
         }
         
-        setupLayout(with: setupLabel(for: "Home world: "), and: planetLabel)
+        setupLayout(with: setupLabel(for: "Home world: "), and: homeWorldLabel)
         setupLayout(with: setupLabel(for: "Gender: "), and: setupLabel(for: character.gender), with: 20)
         setupLayout(with: setupLabel(for: "Height: "), and: setupLabel(for: character.height), with: 40)
         
@@ -95,7 +95,7 @@ extension CharacterInfoViewController {
         NetworkManager.shared.fetch(Planet.self, from: character.homeworld) { [weak self] result in
             switch result {
             case .success(let jsonPlanet):
-                self?.planetLabel.text = jsonPlanet.name
+                self?.homeWorldLabel.text = jsonPlanet.name
             case .failure(let error):
                 print(error)
             }

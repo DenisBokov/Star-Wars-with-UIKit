@@ -14,7 +14,7 @@
 		EF66AF8C29027B3D00890F6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF66AF8B29027B3D00890F6A /* Assets.xcassets */; };
 		EF66AF8F29027B3D00890F6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF66AF8D29027B3D00890F6A /* LaunchScreen.storyboard */; };
 		EF66AF97290287CE00890F6A /* UserActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF66AF96290287CE00890F6A /* UserActionCell.swift */; };
-		EF66AF992902E5C100890F6A /* CollectionCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF66AF982902E5C100890F6A /* CollectionCellModel.swift */; };
+		EF66AF992902E5C100890F6A /* DataModelForFistScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF66AF982902E5C100890F6A /* DataModelForFistScreen.swift */; };
 		EF705041290FF00100CA404F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF705040290FF00100CA404F /* NetworkManager.swift */; };
 		EF7050492910668A00CA404F /* FilmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7050482910668A00CA404F /* FilmsViewController.swift */; };
 		EF70504B291069DD00CA404F /* FilmStarWars.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70504A291069DD00CA404F /* FilmStarWars.swift */; };
@@ -36,7 +36,7 @@
 		EF66AF8E29027B3D00890F6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF66AF9029027B3D00890F6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF66AF96290287CE00890F6A /* UserActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActionCell.swift; sourceTree = "<group>"; };
-		EF66AF982902E5C100890F6A /* CollectionCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCellModel.swift; sourceTree = "<group>"; };
+		EF66AF982902E5C100890F6A /* DataModelForFistScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModelForFistScreen.swift; sourceTree = "<group>"; };
 		EF705040290FF00100CA404F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		EF7050482910668A00CA404F /* FilmsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsViewController.swift; sourceTree = "<group>"; };
 		EF70504A291069DD00CA404F /* FilmStarWars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmStarWars.swift; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 				EF70504429102F8300CA404F /* Services */,
 				EF70504329102F5200CA404F /* ViewControllers */,
 				EF70504229102E6A00CA404F /* Models */,
-				EF66AF982902E5C100890F6A /* CollectionCellModel.swift */,
+				EF66AF982902E5C100890F6A /* DataModelForFistScreen.swift */,
 				EF66AF8B29027B3D00890F6A /* Assets.xcassets */,
 				EF66AF8D29027B3D00890F6A /* LaunchScreen.storyboard */,
 				EF66AF9029027B3D00890F6A /* Info.plist */,
@@ -215,7 +215,7 @@
 				EF7C2476290C76F20090D668 /* CharacterInfoViewController.swift in Sources */,
 				EF705041290FF00100CA404F /* NetworkManager.swift in Sources */,
 				EF7050492910668A00CA404F /* FilmsViewController.swift in Sources */,
-				EF66AF992902E5C100890F6A /* CollectionCellModel.swift in Sources */,
+				EF66AF992902E5C100890F6A /* DataModelForFistScreen.swift in Sources */,
 				EF66AF97290287CE00890F6A /* UserActionCell.swift in Sources */,
 				EFF627FE2906D06600D62DD1 /* SecondScreenCell.swift in Sources */,
 				EF66AF8729027B3C00890F6A /* MainViewController.swift in Sources */,

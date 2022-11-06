@@ -19,7 +19,7 @@ final class MainViewController: UIViewController {
     // MARK: - private property
     
     private var collectionView: UICollectionView!
-    private var collectionCellModel = CollectionCellModel.fetchLink()
+    private var collectionCellModel = DataModelForFistScreen.fetchLink()
     private let userActions = Link.allCases
 
     // MARK: - overide UIViewController

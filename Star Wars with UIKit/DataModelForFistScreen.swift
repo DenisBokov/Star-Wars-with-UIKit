@@ -7,28 +7,28 @@
 
 import UIKit
 
-struct CollectionCellModel {
+struct DataModelForFistScreen {
     
     var mainImage: String
     var collectionLabel: String
     
-    static func fetchLink() -> [CollectionCellModel] {
-        let peopleItem = CollectionCellModel(
+    static func fetchLink() -> [DataModelForFistScreen] {
+        let peopleItem = DataModelForFistScreen(
             mainImage: "people",
             collectionLabel: "Characters"
         )
         
-        let filmItem = CollectionCellModel(
+        let filmItem = DataModelForFistScreen(
             mainImage: "films",
             collectionLabel: "Films"
         )
         
-        let planetItem = CollectionCellModel(
+        let planetItem = DataModelForFistScreen(
             mainImage: "planets",
             collectionLabel: "Planets"
         )
         
-        let starshipItem = CollectionCellModel(
+        let starshipItem = DataModelForFistScreen(
             mainImage: "starships",
             collectionLabel: "Starchips"
         )
