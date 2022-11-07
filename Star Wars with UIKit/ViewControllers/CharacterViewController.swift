@@ -1,5 +1,5 @@
 //
-//  CharacterыViewController.swift
+//  CharacterViewController.swift
 //  Star Wars with UIKit
 //
 //  Created by Denis Bokov on 24.10.2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CharacterыViewController: UIViewController {
+final class CharacterViewController: UIViewController {
     
     // MARK: - Public property
     
@@ -18,7 +18,6 @@ final class CharacterыViewController: UIViewController {
     
     private var peopleStarWars: PeopleStarWars?
     private var characters: [Character] = []
-    private var films: [Film] = []
     private let characterTabaleView = UITableView()
     private let activityIndicator: UIActivityIndicatorView = {
         let activityView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
@@ -41,7 +40,7 @@ final class CharacterыViewController: UIViewController {
       
     }
     
-    //MARK: - Private function
+    //MARK: - Private methods
     
     private func setupTableView() {
         characterTabaleView.rowHeight = 100
@@ -98,7 +97,7 @@ final class CharacterыViewController: UIViewController {
 
 // MARK: - UITableViewDelegate
 
-extension CharacterыViewController: UITableViewDelegate {
+extension CharacterViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let characterRow = characters[indexPath.row]
         let characterInfoViewController = CharacterInfoViewController()
@@ -110,7 +109,7 @@ extension CharacterыViewController: UITableViewDelegate {
 
 // MARK: - UITableViewDataSource
 
-extension CharacterыViewController: UITableViewDataSource {
+extension CharacterViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         characters.count
     }
@@ -133,7 +132,7 @@ extension CharacterыViewController: UITableViewDataSource {
 
 // MARK: - Networking
 
-extension CharacterыViewController {
+extension CharacterViewController {
     private func fechDataForAllCharacters(with url: String?) {
         NetworkManager.shared.fetch(PeopleStarWars.self, from: url) { [weak self] result in
             switch result {

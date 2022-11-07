@@ -52,7 +52,7 @@ extension MainViewController: UICollectionViewDelegate {
         let userAction = collectionCellModel[indexPath.item]
         
         if userAction.collectionLabel == "Characters" {
-            let characterViewController = CharacterыViewController()
+            let characterViewController = CharacterViewController()
             navigationController?.pushViewController(characterViewController, animated: true)
             characterViewController.navigationTitle = "Characters"
         } else if userAction.collectionLabel == "Films" {

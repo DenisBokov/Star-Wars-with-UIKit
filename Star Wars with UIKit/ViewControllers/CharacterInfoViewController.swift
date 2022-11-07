@@ -68,23 +68,32 @@ final class CharacterInfoViewController: UIViewController {
         stackview.axis = .horizontal
         stackview.spacing = 10
         stackview.translatesAutoresizingMaskIntoConstraints = false
+        
         stackview.addArrangedSubview(labelOne)
-        labelOne.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        labelOne.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        NSLayoutConstraint.activate([
+            labelOne.widthAnchor.constraint(equalToConstant: 100),
+            labelOne.heightAnchor.constraint(equalToConstant: 100)
+        ])
         
-        stackview.addArrangedSubview(labelTwo) 
-        labelTwo.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        labelTwo.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        stackview.addArrangedSubview(labelTwo)
+        NSLayoutConstraint.activate([
+            labelTwo.widthAnchor.constraint(equalToConstant: 100),
+            labelTwo.heightAnchor.constraint(equalToConstant: 100)
+        ])
         
-        self.view.addSubview(stackview)
-        stackview.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: constant ?? 20).isActive = true
-        stackview.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        view.addSubview(stackview)
+        NSLayoutConstraint.activate([
+            stackview.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: constant ?? 20),
+            stackview.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
         
-        self.view.addSubview(characterInfoImage)
-        characterInfoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        characterInfoImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        characterInfoImage.widthAnchor.constraint(equalToConstant: 350).isActive = true
-        characterInfoImage.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        view.addSubview(characterInfoImage)
+        NSLayoutConstraint.activate([
+            characterInfoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            characterInfoImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            characterInfoImage.widthAnchor.constraint(equalToConstant: 350),
+            characterInfoImage.heightAnchor.constraint(equalToConstant: 200),
+        ])
     }
 }
 

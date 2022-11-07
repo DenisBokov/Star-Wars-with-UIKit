@@ -31,7 +31,15 @@ final class FilmsViewController: UIViewController {
         
         navigationItem.title = navigationTitle
         navigationController?.navigationBar.prefersLargeTitles = true
-        
+                
+        setupTableView()
+        fechDataForAllFilms()
+      
+    }
+    
+    // MARK: - Private methods
+    
+    private func setupTableView() {
         filmTabaleView.rowHeight = 100
         
         view.addSubview(filmTabaleView)
@@ -48,17 +56,14 @@ final class FilmsViewController: UIViewController {
             filmTabaleView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
         
-        activityIndicator.startAnimating()
-        activityIndicator.hidesWhenStopped = true
-        
         filmTabaleView.register(SecondScreenCell.self, forCellReuseIdentifier: SecondScreenCell.reuseId)
         filmTabaleView.dataSource = self
         filmTabaleView.delegate = self
-        
-        
-        fechDataForAllFilms()
-      
     }
+    
+//    private func addSubviews(withSubview: UIView...) -> UIView {
+//
+//    }
 }
 
 // MARK: - UITableViewDelegate
