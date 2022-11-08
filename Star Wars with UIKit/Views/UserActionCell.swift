@@ -39,11 +39,11 @@ final class UserActionCell: UICollectionViewCell {
             imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
             imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-
-            labelView.topAnchor.constraint(equalTo: topAnchor),
-            labelView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            labelView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            labelView.leadingAnchor.constraint(equalTo: leadingAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            labelView.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
+            labelView.centerYAnchor.constraint(equalTo: imageView.centerYAnchor)
         ])
     }
     
