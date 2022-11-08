@@ -17,7 +17,7 @@ final class CharacterInfoViewController: UIViewController {
     
     private let imageCharacter = ImageData.characterNames
     
-    private lazy var characterInfoImage: UIImageView = {
+    private var characterInfoImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.backgroundColor = .black
@@ -26,7 +26,7 @@ final class CharacterInfoViewController: UIViewController {
         return image
     }()
     
-    private lazy var homeWorldLabel: UILabel = {
+    private var homeWorldLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontSizeToFitWidth = true
@@ -45,9 +45,23 @@ final class CharacterInfoViewController: UIViewController {
             }
         }
         
-        setupLayout(with: setupLabel(for: "Home world: "), and: homeWorldLabel, withConstant: 200)
-        setupLayout(with: setupLabel(for: "Gender: "), and: setupLabel(for: character.gender), withConstant: 240)
-        setupLayout(with: setupLabel(for: "Height: "), and: setupLabel(for: character.height), withConstant: 280)
+        setupImageLayout(forImage: characterInfoImage)
+        
+        setupLayout(
+            forLabelOne: setupLabel(for: "Home world: "),
+            andLabelTwo: homeWorldLabel,
+            withConstant: 200
+        )
+        setupLayout(
+            forLabelOne: setupLabel(for: "Gender: "),
+            andLabelTwo: setupLabel(for: character.gender),
+            withConstant: 240
+        )
+        setupLayout(
+            forLabelOne: setupLabel(for: "Height: "),
+            andLabelTwo: setupLabel(for: character.height),
+            withConstant: 280
+        )
         
         fetchPlanet()
     }
@@ -63,38 +77,50 @@ final class CharacterInfoViewController: UIViewController {
     }
     
     
-    private func setupLayout(with labelOne: UILabel, and labelTwo: UILabel, withConstant constant: CGFloat) {
+    private func setupLayout(forLabelOne labelOne: UILabel, andLabelTwo labelTwo: UILabel, withConstant constant: CGFloat) {
+
         let stackview = UIStackView()
         stackview.axis = .horizontal
         stackview.spacing = 10
         stackview.translatesAutoresizingMaskIntoConstraints = false
-        
+
+        setupSubviews(labelOne, labelTwo, stackview)
+
         stackview.addArrangedSubview(labelOne)
         NSLayoutConstraint.activate([
             labelOne.widthAnchor.constraint(equalToConstant: 110),
             labelOne.heightAnchor.constraint(equalToConstant: 100)
         ])
-        
+
         stackview.addArrangedSubview(labelTwo)
         NSLayoutConstraint.activate([
             labelTwo.widthAnchor.constraint(equalToConstant: 110),
             labelTwo.heightAnchor.constraint(equalToConstant: 100)
         ])
-        
+
         view.addSubview(stackview)
         NSLayoutConstraint.activate([
             stackview.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             stackview.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: constant),
             stackview.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 20)
         ])
-        
-        view.addSubview(characterInfoImage)
+    }
+
+    func setupImageLayout(forImage image: UIImageView) {
+        setupSubviews(image)
+
         NSLayoutConstraint.activate([
-            characterInfoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            characterInfoImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            characterInfoImage.widthAnchor.constraint(equalToConstant: 350),
-            characterInfoImage.heightAnchor.constraint(equalToConstant: 200),
+            image.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            image.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            image.widthAnchor.constraint(equalToConstant: 350),
+            image.heightAnchor.constraint(equalToConstant: 200),
         ])
+    }
+
+    private func setupSubviews(_ subviews: UIView...) {
+        subviews.forEach { subview in
+            view.addSubview(subview)
+        }
     }
 }
 
@@ -112,5 +138,8 @@ extension CharacterInfoViewController {
         }
     }
 }
+
+
+
 
 

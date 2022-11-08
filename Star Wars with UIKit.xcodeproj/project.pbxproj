@@ -21,6 +21,7 @@
 		EF70504D29106C7200CA404F /* FilmInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70504C29106C7200CA404F /* FilmInfoViewController.swift */; };
 		EF7C2476290C76F20090D668 /* CharacterInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7C2475290C76F20090D668 /* CharacterInfoViewController.swift */; };
 		EFDA7C0B29175C3100E3EC78 /* PlanetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDA7C0A29175C3100E3EC78 /* PlanetsViewController.swift */; };
+		EFDA7C0F291ACC1400E3EC78 /* UIVIewController+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDA7C0E291ACC1400E3EC78 /* UIVIewController+Extention.swift */; };
 		EFF627FC2906C3B400D62DD1 /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF627FB2906C3B400D62DD1 /* CharacterViewController.swift */; };
 		EFF627FE2906D06600D62DD1 /* SecondScreenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF627FD2906D06600D62DD1 /* SecondScreenCell.swift */; };
 		EFF62800290719A700D62DD1 /*  PeopleStarWars.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF627FF290719A700D62DD1 /*  PeopleStarWars.swift */; };
@@ -43,6 +44,7 @@
 		EF70504C29106C7200CA404F /* FilmInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmInfoViewController.swift; sourceTree = "<group>"; };
 		EF7C2475290C76F20090D668 /* CharacterInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfoViewController.swift; sourceTree = "<group>"; };
 		EFDA7C0A29175C3100E3EC78 /* PlanetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsViewController.swift; sourceTree = "<group>"; };
+		EFDA7C0E291ACC1400E3EC78 /* UIVIewController+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIewController+Extention.swift"; sourceTree = "<group>"; };
 		EFF627FB2906C3B400D62DD1 /* CharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
 		EFF627FD2906D06600D62DD1 /* SecondScreenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondScreenCell.swift; sourceTree = "<group>"; };
 		EFF627FF290719A700D62DD1 /*  PeopleStarWars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " PeopleStarWars.swift"; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 		EF66AF8129027B3C00890F6A /* Star Wars with UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				EFDA7C0D291ACBD800E3EC78 /* Extentions */,
 				EF7050472910382800CA404F /* SupportingFiles */,
 				EF70504529102FB000CA404F /* Views */,
 				EF70504429102F8300CA404F /* Services */,
@@ -138,6 +141,14 @@
 				EF66AF8229027B3C00890F6A /* AppDelegate.swift */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		EFDA7C0D291ACBD800E3EC78 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				EFDA7C0E291ACC1400E3EC78 /* UIVIewController+Extention.swift */,
+			);
+			path = Extentions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +223,7 @@
 			files = (
 				EF70504B291069DD00CA404F /* FilmStarWars.swift in Sources */,
 				EFF627FC2906C3B400D62DD1 /* CharacterViewController.swift in Sources */,
+				EFDA7C0F291ACC1400E3EC78 /* UIVIewController+Extention.swift in Sources */,
 				EF7C2476290C76F20090D668 /* CharacterInfoViewController.swift in Sources */,
 				EF705041290FF00100CA404F /* NetworkManager.swift in Sources */,
 				EF7050492910668A00CA404F /* FilmsViewController.swift in Sources */,
