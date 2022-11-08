@@ -126,26 +126,32 @@ final class FilmInfoViewController: UIViewController {
         stackview.spacing = 10
         stackview.translatesAutoresizingMaskIntoConstraints = false
         stackview.addArrangedSubview(labelOne)
-        labelOne.widthAnchor.constraint(equalToConstant: 110).isActive = true
-        labelOne.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        NSLayoutConstraint.activate([
+            labelOne.widthAnchor.constraint(equalToConstant: 110),
+            labelOne.heightAnchor.constraint(equalToConstant: 100)
+        ])
         
         stackview.addArrangedSubview(labelTwo)
-        labelTwo.widthAnchor.constraint(equalToConstant: 110).isActive = true
-        labelTwo.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        NSLayoutConstraint.activate([
+            labelTwo.widthAnchor.constraint(equalToConstant: 110),
+            labelTwo.heightAnchor.constraint(equalToConstant: 100)
+        ])
         
         self.view.addSubview(stackview)
-//        stackview.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: constant ?? 0).isActive = true
-//        stackview.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        
-        stackview.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        stackview.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: constant).isActive = true
-        stackview.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 20).isActive = true
+        NSLayoutConstraint.activate([
+            stackview.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            stackview.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: constant),
+            stackview.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 20)
+            
+        ])
         
         self.view.addSubview(filmInfoImage)
-        filmInfoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        filmInfoImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        filmInfoImage.widthAnchor.constraint(equalToConstant: 350).isActive = true
-        filmInfoImage.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        NSLayoutConstraint.activate([
+            filmInfoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            filmInfoImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            filmInfoImage.widthAnchor.constraint(equalToConstant: 350),
+            filmInfoImage.heightAnchor.constraint(equalToConstant: 200)
+        ])
     }
     
 }

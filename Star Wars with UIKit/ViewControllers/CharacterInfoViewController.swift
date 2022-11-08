@@ -45,9 +45,9 @@ final class CharacterInfoViewController: UIViewController {
             }
         }
         
-        setupLayout(with: setupLabel(for: "Home world: "), and: homeWorldLabel)
-        setupLayout(with: setupLabel(for: "Gender: "), and: setupLabel(for: character.gender), with: 20)
-        setupLayout(with: setupLabel(for: "Height: "), and: setupLabel(for: character.height), with: 40)
+        setupLayout(with: setupLabel(for: "Home world: "), and: homeWorldLabel, withConstant: 200)
+        setupLayout(with: setupLabel(for: "Gender: "), and: setupLabel(for: character.gender), withConstant: 240)
+        setupLayout(with: setupLabel(for: "Height: "), and: setupLabel(for: character.height), withConstant: 280)
         
         fetchPlanet()
     }
@@ -63,7 +63,7 @@ final class CharacterInfoViewController: UIViewController {
     }
     
     
-    private func setupLayout(with labelOne: UILabel, and labelTwo: UILabel, with constant: CGFloat? = 0) {
+    private func setupLayout(with labelOne: UILabel, and labelTwo: UILabel, withConstant constant: CGFloat) {
         let stackview = UIStackView()
         stackview.axis = .horizontal
         stackview.spacing = 10
@@ -71,20 +71,21 @@ final class CharacterInfoViewController: UIViewController {
         
         stackview.addArrangedSubview(labelOne)
         NSLayoutConstraint.activate([
-            labelOne.widthAnchor.constraint(equalToConstant: 100),
+            labelOne.widthAnchor.constraint(equalToConstant: 110),
             labelOne.heightAnchor.constraint(equalToConstant: 100)
         ])
         
         stackview.addArrangedSubview(labelTwo)
         NSLayoutConstraint.activate([
-            labelTwo.widthAnchor.constraint(equalToConstant: 100),
+            labelTwo.widthAnchor.constraint(equalToConstant: 110),
             labelTwo.heightAnchor.constraint(equalToConstant: 100)
         ])
         
         view.addSubview(stackview)
         NSLayoutConstraint.activate([
-            stackview.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: constant ?? 20),
-            stackview.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            stackview.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            stackview.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: constant),
+            stackview.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 20)
         ])
         
         view.addSubview(characterInfoImage)
