@@ -60,6 +60,8 @@ final class SecondScreenCell: UITableViewCell {
         images.forEach { image in
             if character == image {
                 imageSecondScreen.image = UIImage(named: image)
+            } else {
+                
             }
         }
     }

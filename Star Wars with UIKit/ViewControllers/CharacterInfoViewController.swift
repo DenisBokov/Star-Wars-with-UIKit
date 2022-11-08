@@ -63,6 +63,18 @@ final class CharacterInfoViewController: UIViewController {
             withConstant: 280
         )
         
+        setupLayout(
+            forLabelOne: setupLabel(for: "Mass: "),
+            andLabelTwo: setupLabel(for: character.mass),
+            withConstant: 320
+        )
+        
+        setupLayout(
+            forLabelOne: setupLabel(for: "Birth Year: "),
+            andLabelTwo: setupLabel(for: character.birthYear),
+            withConstant: 360
+        )
+        
         fetchPlanet()
     }
     
