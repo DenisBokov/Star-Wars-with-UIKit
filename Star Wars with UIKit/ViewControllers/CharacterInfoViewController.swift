@@ -11,13 +11,14 @@ final class CharacterInfoViewController: UIViewController {
     
     // MARK: - Public Property
     
+    var films: [Film] = []
     var character: Character!
     
     // MARK: - Private property
     
     private let imageCharacter = ImageData.characterNames
     
-    private var characterInfoImage: UIImageView = {
+    private lazy var characterInfoImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.backgroundColor = .black
@@ -26,18 +27,27 @@ final class CharacterInfoViewController: UIViewController {
         return image
     }()
     
-    private var homeWorldLabel: UILabel = {
+    private lazy var homeWorldLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
+    private lazy var filmsButtom: UIButton = {
+        var buttonConfiguration = UIButton.Configuration.filled()
+        buttonConfiguration.buttonSize = .mini
+        buttonConfiguration.title = "Film"
+        
+        return UIButton(configuration: buttonConfiguration, primaryAction: UIAction { [unowned self] _ in
+            dismiss(animated: true)
+        })
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.white
-        self.navigationItem.title = character.name
+        setupNavigationBar()
         
         imageCharacter.forEach { image in
             if image == character.name {
@@ -62,13 +72,11 @@ final class CharacterInfoViewController: UIViewController {
             andLabelTwo: setupLabel(for: character.height),
             withConstant: 280
         )
-        
         setupLayout(
             forLabelOne: setupLabel(for: "Mass: "),
             andLabelTwo: setupLabel(for: character.mass),
             withConstant: 320
         )
-        
         setupLayout(
             forLabelOne: setupLabel(for: "Birth Year: "),
             andLabelTwo: setupLabel(for: character.birthYear),
@@ -110,11 +118,10 @@ final class CharacterInfoViewController: UIViewController {
             labelTwo.heightAnchor.constraint(equalToConstant: 100)
         ])
 
-        view.addSubview(stackview)
         NSLayoutConstraint.activate([
             stackview.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             stackview.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: constant),
-            stackview.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 20)
+            stackview.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
     }
 
@@ -128,7 +135,20 @@ final class CharacterInfoViewController: UIViewController {
             image.heightAnchor.constraint(equalToConstant: 200),
         ])
     }
-
+    
+    private func setupNavigationBar() {
+        view.backgroundColor = UIColor.white
+        navigationItem.title = character.name
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Films",
+            image: nil,
+            target: self,
+            action: nil
+        )
+    }
+        
     private func setupSubviews(_ subviews: UIView...) {
         subviews.forEach { subview in
             view.addSubview(subview)

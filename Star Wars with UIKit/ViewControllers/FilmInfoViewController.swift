@@ -141,7 +141,7 @@ final class FilmInfoViewController: UIViewController {
         NSLayoutConstraint.activate([
             stackview.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             stackview.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: constant),
-            stackview.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 20)
+            stackview.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
             
         ])
         
