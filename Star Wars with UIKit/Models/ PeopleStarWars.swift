@@ -27,20 +27,6 @@ struct Character: Decodable {
     let starships: [String]
 }
 
-struct Planet: Decodable {
-    let name: String
-    let rotationPeriod: String
-    let orbitalPeriod: String
-    let diameter: String
-    let climate: String
-    let gravity: String
-    let terrain: String
-    let surfaceWater: String
-    let population: String
-    let residents: [String]
-    let films: [String]
-}
-
 struct Starchip: Decodable {
     let name: String
     let model: String

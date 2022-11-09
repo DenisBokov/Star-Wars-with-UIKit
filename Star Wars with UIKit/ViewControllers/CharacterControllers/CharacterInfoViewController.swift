@@ -125,7 +125,7 @@ final class CharacterInfoViewController: UIViewController {
         ])
     }
 
-    func setupImageLayout(forImage image: UIImageView) {
+    private func setupImageLayout(forImage image: UIImageView) {
         setupSubviews(image)
 
         NSLayoutConstraint.activate([
@@ -150,7 +150,9 @@ final class CharacterInfoViewController: UIViewController {
     }
     
     @objc private func goToFilmsScreen() {
-        
+        let charcterFilmViewController = CharacterFilmsViewController()
+        charcterFilmViewController.character = character
+        present(charcterFilmViewController, animated: true)
     }
         
     private func setupSubviews(_ subviews: UIView...) {

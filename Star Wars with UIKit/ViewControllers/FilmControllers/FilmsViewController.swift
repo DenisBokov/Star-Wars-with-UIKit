@@ -15,7 +15,7 @@ final class FilmsViewController: UIViewController {
     
     // MARK: - Private property
     
-    private var films: [Film] = []
+    var films: [Film] = []
     private let filmTabaleView = UITableView()
     private let activityIndicator: UIActivityIndicatorView = {
         let activityView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
