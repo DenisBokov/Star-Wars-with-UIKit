@@ -98,9 +98,6 @@ final class FilmInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.white
-        navigationItem.title = film.title
-        
         setupNavigationBar()
         
         imagefilms.forEach { image in
@@ -158,11 +155,11 @@ final class FilmInfoViewController: UIViewController {
     
     private func setupNavigationBar() {
         view.backgroundColor = UIColor.white
-        navigationItem.title = character.name
+        navigationItem.title = film.title
         navigationController?.navigationBar.prefersLargeTitles = true
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(
-            title: "Films",
+            title: "Characters",
             image: nil,
             target: self,
             action: #selector(goToFilmsScreen)
@@ -170,9 +167,9 @@ final class FilmInfoViewController: UIViewController {
     }
     
     @objc private func goToFilmsScreen() {
-        let charcterFilmViewController = CharacterFilmsViewController()
-        charcterFilmViewController.character = character
-        present(charcterFilmViewController, animated: true)
+        let filmCharacterViewController = FilmCharactersViewController()
+        filmCharacterViewController.film = film
+        present(filmCharacterViewController, animated: true)
     }
     
 }
