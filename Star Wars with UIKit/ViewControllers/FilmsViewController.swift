@@ -92,7 +92,6 @@ extension FilmsViewController: UITableViewDataSource {
             for: indexPath) as? SecondScreenCell
         else {
             return UITableViewCell()
-            
         }
 
         let film = films[indexPath.row].title

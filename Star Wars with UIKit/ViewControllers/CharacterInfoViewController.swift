@@ -145,8 +145,12 @@ final class CharacterInfoViewController: UIViewController {
             title: "Films",
             image: nil,
             target: self,
-            action: nil
+            action: #selector(goToFilmsScreen)
         )
+    }
+    
+    @objc private func goToFilmsScreen() {
+        
     }
         
     private func setupSubviews(_ subviews: UIView...) {

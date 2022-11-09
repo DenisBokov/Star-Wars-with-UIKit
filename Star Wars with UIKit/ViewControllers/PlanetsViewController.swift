@@ -13,6 +13,15 @@ final class PlanetsViewController: UIViewController {
     
     var navigationTitle: String!
     
+    // MARK: - Private property
+    
+    private let planetTableView = UITableView()
+    private let activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.startAnimating()
+        return activityIndicator
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
