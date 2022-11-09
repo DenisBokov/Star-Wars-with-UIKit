@@ -65,8 +65,8 @@ final class CharacterViewController: UIViewController {
     }
     
     private func setupNavigationBar() {
-        self.navigationItem.title = navigationTitle
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = navigationTitle
+        navigationController?.navigationBar.prefersLargeTitles = true
         
         navigationItem.rightBarButtonItems = [
             UIBarButtonItem(
