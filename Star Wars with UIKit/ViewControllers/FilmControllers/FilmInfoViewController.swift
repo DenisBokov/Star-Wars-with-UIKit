@@ -162,11 +162,11 @@ final class FilmInfoViewController: UIViewController {
             title: "Characters",
             image: nil,
             target: self,
-            action: #selector(goToFilmsScreen)
+            action: #selector(goToCharactersScreen)
         )
     }
     
-    @objc private func goToFilmsScreen() {
+    @objc private func goToCharactersScreen() {
         let filmCharacterViewController = FilmCharactersViewController()
         filmCharacterViewController.film = film
         present(filmCharacterViewController, animated: true)

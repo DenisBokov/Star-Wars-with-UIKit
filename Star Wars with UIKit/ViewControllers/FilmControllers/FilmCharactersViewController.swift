@@ -27,6 +27,7 @@ final class FilmCharactersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupTableView()
     }
     
     // MARK: - Private methods
