@@ -1,5 +1,5 @@
 //
-//  UIVIewController+Extention.swift
+//  BaseClassInfoViewController.swift
 //  Star Wars with UIKit
 //
 //  Created by Denis Bokov on 08.11.2022.

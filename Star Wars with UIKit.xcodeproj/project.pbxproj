@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF19709629241BFA004FCC14 /* StarshipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF19709529241BFA004FCC14 /* StarshipsViewController.swift */; };
 		EF1B9E432916A67000843B25 /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1B9E422916A67000843B25 /* ImageData.swift */; };
 		EF66AF8329027B3C00890F6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF66AF8229027B3C00890F6A /* AppDelegate.swift */; };
 		EF66AF8529027B3C00890F6A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF66AF8429027B3C00890F6A /* SceneDelegate.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EF19709529241BFA004FCC14 /* StarshipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipsViewController.swift; sourceTree = "<group>"; };
 		EF1B9E422916A67000843B25 /* ImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageData.swift; sourceTree = "<group>"; };
 		EF66AF7F29027B3C00890F6A /* Star Wars with UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Star Wars with UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF66AF8229027B3C00890F6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				EFDA7C12291C4E8300E3EC78 /* FilmControllers */,
 				EFDA7C14291C4EEC00E3EC78 /* PlanetControllers */,
 				EFDA7C13291C4ED200E3EC78 /* CharacterControllers */,
+				EF19709529241BFA004FCC14 /* StarshipsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				EFF627FC2906C3B400D62DD1 /* CharacterViewController.swift in Sources */,
 				EFDA7C0F291ACC1400E3EC78 /* UIVIewController+Extention.swift in Sources */,
 				EF7C2476290C76F20090D668 /* CharacterInfoViewController.swift in Sources */,
+				EF19709629241BFA004FCC14 /* StarshipsViewController.swift in Sources */,
 				EF705041290FF00100CA404F /* NetworkManager.swift in Sources */,
 				EF7050492910668A00CA404F /* FilmsViewController.swift in Sources */,
 				EFDA7C18291C63B200E3EC78 /* FilmCharactersViewController.swift in Sources */,
