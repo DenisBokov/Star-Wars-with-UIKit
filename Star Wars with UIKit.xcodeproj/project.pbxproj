@@ -22,7 +22,7 @@
 		EF70504D29106C7200CA404F /* FilmInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70504C29106C7200CA404F /* FilmInfoViewController.swift */; };
 		EF7C2476290C76F20090D668 /* CharacterInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7C2475290C76F20090D668 /* CharacterInfoViewController.swift */; };
 		EFDA7C0B29175C3100E3EC78 /* PlanetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDA7C0A29175C3100E3EC78 /* PlanetsViewController.swift */; };
-		EFDA7C0F291ACC1400E3EC78 /* UIVIewController+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDA7C0E291ACC1400E3EC78 /* UIVIewController+Extention.swift */; };
+		EFDA7C0F291ACC1400E3EC78 /* BaseInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDA7C0E291ACC1400E3EC78 /* BaseInfoViewController.swift */; };
 		EFDA7C11291C3EB600E3EC78 /* CharacterFilmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDA7C10291C3EB600E3EC78 /* CharacterFilmsViewController.swift */; };
 		EFDA7C16291C4F2F00E3EC78 /* PlanetStarWars.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDA7C15291C4F2F00E3EC78 /* PlanetStarWars.swift */; };
 		EFDA7C18291C63B200E3EC78 /* FilmCharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDA7C17291C63B200E3EC78 /* FilmCharactersViewController.swift */; };
@@ -49,7 +49,7 @@
 		EF70504C29106C7200CA404F /* FilmInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmInfoViewController.swift; sourceTree = "<group>"; };
 		EF7C2475290C76F20090D668 /* CharacterInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfoViewController.swift; sourceTree = "<group>"; };
 		EFDA7C0A29175C3100E3EC78 /* PlanetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsViewController.swift; sourceTree = "<group>"; };
-		EFDA7C0E291ACC1400E3EC78 /* UIVIewController+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIewController+Extention.swift"; sourceTree = "<group>"; };
+		EFDA7C0E291ACC1400E3EC78 /* BaseInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoViewController.swift; sourceTree = "<group>"; };
 		EFDA7C10291C3EB600E3EC78 /* CharacterFilmsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterFilmsViewController.swift; sourceTree = "<group>"; };
 		EFDA7C15291C4F2F00E3EC78 /* PlanetStarWars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetStarWars.swift; sourceTree = "<group>"; };
 		EFDA7C17291C63B200E3EC78 /* FilmCharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmCharactersViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +115,7 @@
 		EF70504329102F5200CA404F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				EFDA7C0E291ACC1400E3EC78 /* BaseInfoViewController.swift */,
 				EF66AF8629027B3C00890F6A /* MainViewController.swift */,
 				EFDA7C12291C4E8300E3EC78 /* FilmControllers */,
 				EFDA7C14291C4EEC00E3EC78 /* PlanetControllers */,
@@ -154,7 +155,6 @@
 		EFDA7C0D291ACBD800E3EC78 /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
-				EFDA7C0E291ACC1400E3EC78 /* UIVIewController+Extention.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -259,7 +259,7 @@
 			files = (
 				EF70504B291069DD00CA404F /* FilmStarWars.swift in Sources */,
 				EFF627FC2906C3B400D62DD1 /* CharacterViewController.swift in Sources */,
-				EFDA7C0F291ACC1400E3EC78 /* UIVIewController+Extention.swift in Sources */,
+				EFDA7C0F291ACC1400E3EC78 /* BaseInfoViewController.swift in Sources */,
 				EF7C2476290C76F20090D668 /* CharacterInfoViewController.swift in Sources */,
 				EF19709629241BFA004FCC14 /* StarshipsViewController.swift in Sources */,
 				EF705041290FF00100CA404F /* NetworkManager.swift in Sources */,

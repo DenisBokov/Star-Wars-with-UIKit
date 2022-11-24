@@ -1,5 +1,5 @@
 //
-//  BaseClassInfoViewController.swift
+//  BaseInfoViewController.swift
 //  Star Wars with UIKit
 //
 //  Created by Denis Bokov on 08.11.2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BaseClassInfoViewController: UIViewController {
+class BaseInfoViewController: UIViewController {
     
     func setupLayout(forLabelOne labelOne: UILabel, andLabelTwo LabelTwo: UILabel, withConstant constant: CGFloat) {
 
