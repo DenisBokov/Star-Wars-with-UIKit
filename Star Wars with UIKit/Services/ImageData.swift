@@ -22,7 +22,7 @@ struct ImageData {
         "Yarael Poof", "Plo Koon", "Mas Amedda", "Gregar Typho", "Cordé", "Cliegg Lars", "Poggle The Lesser",
         "Luminara Unduli", "Barriss Offee", "Dormé", "Dooku", "Bail Prestor Organa", "Jango Fett", "Zam Wesell",
         "Dexter Jettster", "Lama Su", "Taun We", "Jocasta Nu", "R4-P17", "Wat Tambor", "San Hill", "Shaak Ti",
-        "Grievous", "Tarfful", "Raymus Antilles", "Sly Moore", "Tion Medon"
+        "Grievous", "Tarfful", "Raymus Antilles", "Sly Moore", "Tion Medon", "image not found"
     ]
     
     static let filmTitles = [
