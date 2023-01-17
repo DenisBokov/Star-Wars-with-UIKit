@@ -9,29 +9,31 @@ import UIKit
 
 class BaseInfoViewController: UIViewController {
     
-    func setupLayout(forLabelOne labelOne: UILabel, andLabelTwo LabelTwo: UILabel, withConstant constant: CGFloat) {
+    func setupLayout(forLabelOne labelOne: UILabel, andLabelTwo labelTwo: UILabel, withConstant constant: CGFloat) {
 
         let stackview = UIStackView()
         stackview.axis = .horizontal
         stackview.spacing = 10
         stackview.translatesAutoresizingMaskIntoConstraints = false
 
-        setupSubviews(labelOne, LabelTwo, stackview)
+        setupSubviews(labelOne, labelTwo, stackview)
 
+        stackview.addArrangedSubview(labelOne)
         NSLayoutConstraint.activate([
             labelOne.widthAnchor.constraint(equalToConstant: 110),
             labelOne.heightAnchor.constraint(equalToConstant: 100)
         ])
 
+        stackview.addArrangedSubview(labelTwo)
         NSLayoutConstraint.activate([
-            LabelTwo.widthAnchor.constraint(equalToConstant: 110),
-            LabelTwo.heightAnchor.constraint(equalToConstant: 100)
+            labelTwo.widthAnchor.constraint(equalToConstant: 110),
+            labelTwo.heightAnchor.constraint(equalToConstant: 100)
         ])
 
         NSLayoutConstraint.activate([
             stackview.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             stackview.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: constant),
-            stackview.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 20)
+            stackview.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
     }
 
