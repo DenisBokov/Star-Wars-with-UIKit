@@ -10,12 +10,10 @@ import UIKit
 final class CharacterInfoViewController: BaseInfoViewController {
     
     // MARK: - Public Property
-    
     var films: [Film] = []
     var character: Character!
     
     // MARK: - Private property
-    
     private let imageCharacter = ImageData.characterNames
     
     private lazy var characterInfoImage: UIImageView = {
@@ -32,16 +30,6 @@ final class CharacterInfoViewController: BaseInfoViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontSizeToFitWidth = true
         return label
-    }()
-    
-    private lazy var filmsButtom: UIButton = {
-        var buttonConfiguration = UIButton.Configuration.filled()
-        buttonConfiguration.buttonSize = .mini
-        buttonConfiguration.title = "Film"
-        
-        return UIButton(configuration: buttonConfiguration, primaryAction: UIAction { [unowned self] _ in
-            dismiss(animated: true)
-        })
     }()
     
     override func viewDidLoad() {
@@ -87,7 +75,6 @@ final class CharacterInfoViewController: BaseInfoViewController {
     }
     
     // MARK: - Private methods
-    
     private func setupLabel(for string: String) -> UILabel {
         let label = UILabel()
         label.text = string
@@ -117,7 +104,6 @@ final class CharacterInfoViewController: BaseInfoViewController {
 }
 
 // MARK: - Networking
-
 extension CharacterInfoViewController {
     private func fetchPlanet() {
         NetworkManager.shared.fetch(Planet.self, from: character.homeworld) { [weak self] result in

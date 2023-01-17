@@ -7,14 +7,13 @@
 
 import UIKit
 
-final class FilmInfoViewController: UIViewController {
+final class FilmInfoViewController: BaseInfoViewController {
     
     // MARK: - Public Property
-    
     var film: Film!
-    private var imagefilms = ImageData.filmTitles
     
     // MARK: - Private property
+    private var imagefilms = ImageData.filmTitles
     
     private lazy var filmInfoImage: UIImageView = {
         let image = UIImageView()
@@ -25,76 +24,7 @@ final class FilmInfoViewController: UIViewController {
         return image
     }()
     
-    private lazy var episodeIdLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.adjustsFontSizeToFitWidth = true
-        label.lineBreakMode = .byCharWrapping
-        label.numberOfLines = 0
-        return label
-    }()
-    
-    private lazy var nameKyeEpisodeIid: UILabel = {
-        let label = UILabel()
-        label.text = "Episode: "
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.adjustsFontSizeToFitWidth = true
-        return label
-    }()
-    
-    private lazy var directorLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.adjustsFontSizeToFitWidth = true
-        label.lineBreakMode = .byCharWrapping
-        label.numberOfLines = 0
-        return label
-    }()
-    
-    private lazy var nameKyeDirector: UILabel = {
-        let label = UILabel()
-        label.text = "Director: "
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.adjustsFontSizeToFitWidth = true
-        return label
-    }()
-    
-    private lazy var producerLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.adjustsFontSizeToFitWidth = true
-        label.lineBreakMode = .byCharWrapping
-        label.numberOfLines = 0
-        return label
-    }()
-    
-    private lazy var nameKyeProducer: UILabel = {
-        let label = UILabel()
-        label.text = "Producer: "
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.adjustsFontSizeToFitWidth = true
-        return label
-    }()
-    
-    private lazy var releaseDateLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.adjustsFontSizeToFitWidth = true
-        label.lineBreakMode = .byCharWrapping
-        label.numberOfLines = 0
-        return label
-    }()
-    
-    private lazy var nameKyeReleaseDate: UILabel = {
-        let label = UILabel()
-        label.text = "Release date: "
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.adjustsFontSizeToFitWidth = true
-        return label
-    }()
-    
     // MARK: - viewDidLoad
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -106,51 +36,47 @@ final class FilmInfoViewController: UIViewController {
             }
         }
         
-        setupLayout(with: nameKyeEpisodeIid, and: episodeIdLabel, with: 200)
-        setupLayout(with: nameKyeDirector, and: directorLabel, with: 240)
-        setupLayout(with: nameKyeProducer, and: producerLabel, with: 280)
-        setupLayout(with: nameKyeReleaseDate, and: releaseDateLabel, with: 320)
+        setupImageLayout(forImage: filmInfoImage)
         
-        episodeIdLabel.text = String(film.episodeId)
-        directorLabel.text = film.director
-        producerLabel.text = film.producer
-        releaseDateLabel.text = film.releaseDate
+        setupLayout(
+            forLabelOne: setupKeyLabel(for: "Episode: "),
+            andLabelTwo: setupMeaningLabel(for: String(film.episodeId)),
+            withConstant: 200
+        )
+        setupLayout(
+            forLabelOne: setupKeyLabel(for: "Director: "),
+            andLabelTwo: setupMeaningLabel(for: film.director),
+            withConstant: 240
+        )
+        setupLayout(
+            forLabelOne: setupKeyLabel(for: "Producer: "),
+            andLabelTwo: setupMeaningLabel(for: film.producer),
+            withConstant: 280
+        )
+        setupLayout(
+            forLabelOne: setupKeyLabel(for: "Release date: "),
+            andLabelTwo: setupMeaningLabel(for: film.releaseDate),
+            withConstant: 320
+        )
     }
     
     // MARK: - Private function
+    private func setupKeyLabel(for string: String) -> UILabel {
+        let label = UILabel()
+        label.text = string
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.adjustsFontSizeToFitWidth = true
+        return label
+    }
     
-    private func setupLayout(with labelOne: UILabel, and labelTwo: UILabel, with constant: CGFloat) {
-        let stackview = UIStackView()
-        stackview.axis = .horizontal
-        stackview.spacing = 10
-        stackview.translatesAutoresizingMaskIntoConstraints = false
-        stackview.addArrangedSubview(labelOne)
-        NSLayoutConstraint.activate([
-            labelOne.widthAnchor.constraint(equalToConstant: 110),
-            labelOne.heightAnchor.constraint(equalToConstant: 100)
-        ])
-        
-        stackview.addArrangedSubview(labelTwo)
-        NSLayoutConstraint.activate([
-            labelTwo.widthAnchor.constraint(equalToConstant: 110),
-            labelTwo.heightAnchor.constraint(equalToConstant: 100)
-        ])
-        
-        self.view.addSubview(stackview)
-        NSLayoutConstraint.activate([
-            stackview.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            stackview.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: constant),
-            stackview.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
-            
-        ])
-        
-        self.view.addSubview(filmInfoImage)
-        NSLayoutConstraint.activate([
-            filmInfoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            filmInfoImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            filmInfoImage.widthAnchor.constraint(equalToConstant: 350),
-            filmInfoImage.heightAnchor.constraint(equalToConstant: 200)
-        ])
+    private func setupMeaningLabel(for string: String) -> UILabel {
+        let label = UILabel()
+        label.text = string
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.adjustsFontSizeToFitWidth = true
+        label.lineBreakMode = .byCharWrapping
+        label.numberOfLines = 0
+        return label
     }
     
     private func setupNavigationBar() {
