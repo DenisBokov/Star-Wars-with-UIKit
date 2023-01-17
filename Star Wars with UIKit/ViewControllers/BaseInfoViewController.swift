@@ -47,6 +47,15 @@ class BaseInfoViewController: UIViewController {
             image.heightAnchor.constraint(equalToConstant: 200),
         ])
     }
+    
+    func setupLabel(for string: String) -> UILabel {
+        let label = UILabel()
+        label.text = string
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.adjustsFontSizeToFitWidth = true
+        label.numberOfLines = 0
+        return label
+    }
 
     private func setupSubviews(_ subviews: UIView...) {
         subviews.forEach { subview in

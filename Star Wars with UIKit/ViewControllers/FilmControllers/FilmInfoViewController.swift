@@ -39,46 +39,28 @@ final class FilmInfoViewController: BaseInfoViewController {
         setupImageLayout(forImage: filmInfoImage)
         
         setupLayout(
-            forLabelOne: setupKeyLabel(for: "Episode: "),
-            andLabelTwo: setupMeaningLabel(for: String(film.episodeId)),
+            forLabelOne: setupLabel(for: "Episode: "),
+            andLabelTwo: setupLabel(for: String(film.episodeId)),
             withConstant: 200
         )
         setupLayout(
-            forLabelOne: setupKeyLabel(for: "Director: "),
-            andLabelTwo: setupMeaningLabel(for: film.director),
+            forLabelOne: setupLabel(for: "Director: "),
+            andLabelTwo: setupLabel(for: film.director),
             withConstant: 240
         )
         setupLayout(
-            forLabelOne: setupKeyLabel(for: "Producer: "),
-            andLabelTwo: setupMeaningLabel(for: film.producer),
+            forLabelOne: setupLabel(for: "Producer: "),
+            andLabelTwo: setupLabel(for: film.producer),
             withConstant: 280
         )
         setupLayout(
-            forLabelOne: setupKeyLabel(for: "Release date: "),
-            andLabelTwo: setupMeaningLabel(for: film.releaseDate),
+            forLabelOne: setupLabel(for: "Release date: "),
+            andLabelTwo: setupLabel(for: film.releaseDate),
             withConstant: 320
         )
     }
     
     // MARK: - Private function
-    private func setupKeyLabel(for string: String) -> UILabel {
-        let label = UILabel()
-        label.text = string
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.adjustsFontSizeToFitWidth = true
-        return label
-    }
-    
-    private func setupMeaningLabel(for string: String) -> UILabel {
-        let label = UILabel()
-        label.text = string
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.adjustsFontSizeToFitWidth = true
-        label.lineBreakMode = .byCharWrapping
-        label.numberOfLines = 0
-        return label
-    }
-    
     private func setupNavigationBar() {
         view.backgroundColor = UIColor.white
         navigationItem.title = film.title

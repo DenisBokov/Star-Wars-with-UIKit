@@ -75,14 +75,6 @@ final class CharacterInfoViewController: BaseInfoViewController {
     }
     
     // MARK: - Private methods
-    private func setupLabel(for string: String) -> UILabel {
-        let label = UILabel()
-        label.text = string
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.adjustsFontSizeToFitWidth = true
-        return label
-    }
-    
     private func setupNavigationBar() {
         view.backgroundColor = UIColor.white
         navigationItem.title = character.name
