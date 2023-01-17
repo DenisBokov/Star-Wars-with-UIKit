@@ -61,7 +61,7 @@ final class SecondScreenCell: UITableViewCell {
             if character == image {
                 imageSecondScreen.image = UIImage(named: image)
             } else {
-                imageSecondScreen.image = UIImage(named: "image not found")
+//                imageSecondScreen.image = UIImage(named: "image not found")
             }
         }
     }
