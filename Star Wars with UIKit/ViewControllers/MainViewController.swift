@@ -17,13 +17,11 @@ enum Link: String, CaseIterable {
 final class MainViewController: UIViewController {
     
     // MARK: - private property
-    
     private var collectionView: UICollectionView!
     private var collectionCellModel = DataModelForFistScreen.fetchLink()
     private let userActions = Link.allCases
 
     // MARK: - overide UIViewController
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,7 +29,6 @@ final class MainViewController: UIViewController {
     }
     
     // MARK: - Private function
-    
     private func setupCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -46,7 +43,6 @@ final class MainViewController: UIViewController {
 }
 
 // MARK: - UICollectionViewDelegate
-
 extension MainViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let userAction = collectionCellModel[indexPath.item]
@@ -68,7 +64,6 @@ extension MainViewController: UICollectionViewDelegate {
 }
 
 // MARK: - UICollectionViewDataSource
-
 extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         collectionCellModel.count
@@ -91,7 +86,6 @@ extension MainViewController: UICollectionViewDataSource {
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
-
 extension MainViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize.init(width: UIScreen.main.bounds.width - 68, height: 200)

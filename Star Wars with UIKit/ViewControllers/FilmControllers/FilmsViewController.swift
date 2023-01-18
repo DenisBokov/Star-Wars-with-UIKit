@@ -10,22 +10,19 @@ import UIKit
 final class FilmsViewController: UIViewController {
     
     // MARK: - Public property
-    
     var navigationTitle: String!
+    var films: [Film] = []
     
     // MARK: - Private property
-    
-    var films: [Film] = []
     private let filmTabaleView = UITableView()
     private let activityIndicator: UIActivityIndicatorView = {
-        let activityView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
+        let activityView = UIActivityIndicatorView(style: .large)
         activityView.startAnimating()
         return activityView
     }()
     private let filmTitles = ImageData.filmTitles
     
-    // MARK: - Override UIViewController
-    
+    // MARK: - Override methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,7 +35,6 @@ final class FilmsViewController: UIViewController {
     }
     
     // MARK: - Private methods
-    
     private func setupTableView() {
         filmTabaleView.rowHeight = 100
         
@@ -60,14 +56,9 @@ final class FilmsViewController: UIViewController {
         filmTabaleView.dataSource = self
         filmTabaleView.delegate = self
     }
-    
-//    private func addSubviews(withSubview: UIView...) -> UIView {
-//
-//    }
 }
 
 // MARK: - UITableViewDelegate
-
 extension FilmsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let filmRow = films[indexPath.row]
@@ -79,7 +70,6 @@ extension FilmsViewController: UITableViewDelegate {
 }
 
 // MARK: - UITableViewDataSource
-
 extension FilmsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         films.count

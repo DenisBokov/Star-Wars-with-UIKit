@@ -9,6 +9,9 @@ import UIKit
 
 class BaseInfoViewController: UIViewController {
     
+    private let widthConstraint = CGFloat(110)
+    private let heightConatraint = CGFloat(100)
+    
     func setupLayout(forLabelOne labelOne: UILabel, andLabelTwo labelTwo: UILabel, withConstant constant: CGFloat) {
 
         let stackview = UIStackView()
@@ -20,14 +23,14 @@ class BaseInfoViewController: UIViewController {
 
         stackview.addArrangedSubview(labelOne)
         NSLayoutConstraint.activate([
-            labelOne.widthAnchor.constraint(equalToConstant: 110),
-            labelOne.heightAnchor.constraint(equalToConstant: 100)
+            labelOne.widthAnchor.constraint(equalToConstant: widthConstraint),
+            labelOne.heightAnchor.constraint(equalToConstant: heightConatraint)
         ])
 
         stackview.addArrangedSubview(labelTwo)
         NSLayoutConstraint.activate([
-            labelTwo.widthAnchor.constraint(equalToConstant: 110),
-            labelTwo.heightAnchor.constraint(equalToConstant: 100)
+            labelTwo.widthAnchor.constraint(equalToConstant: widthConstraint),
+            labelTwo.heightAnchor.constraint(equalToConstant: heightConatraint)
         ])
 
         NSLayoutConstraint.activate([
