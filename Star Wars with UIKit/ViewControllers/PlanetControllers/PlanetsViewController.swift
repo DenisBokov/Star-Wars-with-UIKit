@@ -57,10 +57,10 @@ final class PlanetsViewController: UIViewController {
 extension PlanetsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let planetRow = planets[indexPath.row]
-        let planetInfoViewController = FilmInfoViewController()
-        planetInfoViewController. = planetRow
-        navigationController?.pushViewController(filmInfoViewController, animated: true)
-        filmTabaleView.deselectRow(at: indexPath, animated: true)
+        let planetInfoViewController = PlanetInfoViewController()
+        planetInfoViewController.planet = planetRow
+        navigationController?.pushViewController(planetInfoViewController, animated: true)
+        planetTableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
@@ -79,8 +79,8 @@ extension PlanetsViewController: UITableViewDataSource {
             return UITableViewCell()
         }
 
-        let planet = planets[indexPath.row].title
-        cell.configure(with: film, images: filmTitles)
+        let planet = planets[indexPath.row].name
+//        cell.configure(with: film, images: filmTitles)
         
         return cell
     }
