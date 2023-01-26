@@ -33,7 +33,6 @@ class NetworkManager {
             }
             
             do {
-                
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let type = try decoder.decode(T.self, from: data)
@@ -41,7 +40,6 @@ class NetworkManager {
                 DispatchQueue.main.async {
                     complition(.success(type))
                 }
-                
             } catch {
                 complition(.failure(.decodingError))
             }

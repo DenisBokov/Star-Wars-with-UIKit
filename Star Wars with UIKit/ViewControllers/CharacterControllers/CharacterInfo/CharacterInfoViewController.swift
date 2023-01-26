@@ -10,8 +10,14 @@ import UIKit
 final class CharacterInfoViewController: BaseInfoViewController {
     
     // MARK: - Public Property
-    var films: [Film] = []
     var character: Character!
+    var planet: Planet!
+    
+    var viewModel: CharacterInfoViewModelProtocol! {
+        didSet {
+            
+        }
+    }
     
     // MARK: - Private property
     private let imageCharacter = ImageData.characterNames
@@ -35,6 +41,8 @@ final class CharacterInfoViewController: BaseInfoViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel = CharacterInfoViewModel(character: character, planet: planet)
+        
         setupNavigationBar()
         
         imageCharacter.forEach { image in
@@ -52,22 +60,22 @@ final class CharacterInfoViewController: BaseInfoViewController {
         )
         setupLayout(
             forLabelOne: setupLabel(for: "Gender: "),
-            andLabelTwo: setupLabel(for: character.gender),
+            andLabelTwo: setupLabel(for: viewModel.gender),
             withConstant: 240
         )
         setupLayout(
             forLabelOne: setupLabel(for: "Height: "),
-            andLabelTwo: setupLabel(for: character.height),
+            andLabelTwo: setupLabel(for: viewModel.height),
             withConstant: 280
         )
         setupLayout(
             forLabelOne: setupLabel(for: "Mass: "),
-            andLabelTwo: setupLabel(for: character.mass),
+            andLabelTwo: setupLabel(for: viewModel.mass),
             withConstant: 320
         )
         setupLayout(
             forLabelOne: setupLabel(for: "Birth Year: "),
-            andLabelTwo: setupLabel(for: character.birthYear),
+            andLabelTwo: setupLabel(for: viewModel.birthYear),
             withConstant: 360
         )
         

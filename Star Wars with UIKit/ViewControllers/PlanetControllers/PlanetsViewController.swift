@@ -29,7 +29,7 @@ final class PlanetsViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-    //MARK: - Private mothods
+    // MARK: - Private mothods
     private func setupTableView() {
         planetTableView.rowHeight = 100
         
@@ -79,7 +79,7 @@ extension PlanetsViewController: UITableViewDataSource {
             return UITableViewCell()
         }
 
-        let planet = planets[indexPath.row].name
+        _ = planets[indexPath.row].name
 //        cell.configure(with: film, images: filmTitles)
         
         return cell
